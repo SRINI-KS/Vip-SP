@@ -1,0 +1,16 @@
+
+<h1>{{title}}</h1>
+<input type="text"  ngModel name="name" [(ngModel)]="name">
+<img [src]="image" alt="">
+<div class="box"></div>
+{{name}}
+
+
+<form (ngSubmit)="login()">
+<label for="">email</label>
+<input type="text" ngModel name="name" [(ngModel)]="email">
+<label for="">password</label>
+<input type="text" #referngModel name="name" [(ngModel)]="pass">
+
+<button type="submit" > login</button>
+</form>
