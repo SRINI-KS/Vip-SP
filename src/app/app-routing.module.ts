@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from './Components/Error/not-found/not-found.component';
 import { LoginComponent } from './Components/Auth/Login/login/login.component';
 import { RegisterComponent } from './Components/Auth/Register/register/register.component';
-import { CommanDashBoardComponent } from './Components/comman-dash-board/comman-dash-board.component';
+import { CommanDashBoardComponent } from './Components/comman-dashboard/comman-dash-board.component';
 
 const routes: Routes = [
   {
@@ -20,7 +20,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/login',
+    redirectTo: '/dashboard',
     pathMatch: 'full',
   },
   {

@@ -6,10 +6,11 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './Components/Auth/Login/login/login.component';
 import { RegisterComponent } from './Components/Auth/Register/register/register.component';
 import { NotFoundComponent } from './Components/Error/not-found/not-found.component';
-import { CommanDashBoardComponent } from './Components/comman-dash-board/comman-dash-board.component';
+import { CommanDashBoardComponent } from './Components/comman-dashboard/comman-dash-board.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialDesignModule } from './Modules/MaterialDesign/material-design/material-design.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {  HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,9 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialDesignModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
