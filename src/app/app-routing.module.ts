@@ -3,12 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from './Components/Error/not-found/not-found.component';
 import { LoginComponent } from './Components/Auth/Login/login/login.component';
 import { RegisterComponent } from './Components/Auth/Register/register/register.component';
-import { CommanDashBoardComponent } from './Components/comman-dashboard/comman-dash-board.component';
+import { ProviderGuard } from './Guards/ProviderGuard/provider.guard';
+import { UserGuard } from './Guards/UserGuard/user.guard';
+import { HomeComponent } from './Components/home/home.component';
 
 const routes: Routes = [
   {
-    path: 'dashboard',
-    component: CommanDashBoardComponent, 
+    path: 'home',
+    component: HomeComponent, 
   },
   {
     path: 'login',
@@ -20,18 +22,20 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/dashboard',
+    redirectTo: '/home',
     pathMatch: 'full',
   },
   {
     path: 'provider',
+    canActivate:[ProviderGuard],
     loadChildren: () =>
-      import('./Roles/Provider/Provider/provider/provider.module').then((m) => m.ProviderModule),
+      import('./Roles/Provider/Provider/provider.module').then((m) => m.ProviderModule),
   },
   {
     path: 'user',
+    canActivate:[UserGuard],
     loadChildren: () =>
-      import('./Roles/User/User/user/user.module').then((m) => m.UserModule),
+      import('./Roles/User/User/user.module').then((m) => m.UserModule),
   },
   {
     path: '**',

@@ -110,12 +110,14 @@ export class RegisterComponent implements OnInit {
   // }
 
   register() {
-    console.log(this.registerData.value);
-    this.regService.registerUser(this.registerData.value).subscribe(
-      (Response)=>{
-        console.log(Response)
-      }
-    )
+    if(this.registerData.valid){
+      this.regService.registerUser(this.registerData.value).subscribe(
+        (Response)=>{
+          console.log(Response)
+        }
+      )
+    }
+    
   }
 
   

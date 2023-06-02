@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { UserDashboardComponent } from '../../Components/UserDashboard/user-dashboard/user-dashboard.component';
-import { UserHomeComponent } from '../../Components/UserHome/user-home/user-home.component';
-import { AddRequestComponent } from '../../Components/add-request/add-request.component';
+import { UserComponent } from './user.component';
+import { AddRequestComponent } from '../Components/add-request/add-request.component';
+import { UserHomeComponent } from '../Components/UserHome/user-home/user-home.component';
 
 const routes: Routes = [
   {
-    path:'',component:UserDashboardComponent,children:[
+    path:'',component:UserComponent,children:[
       {
         path:'addrequest',component:AddRequestComponent
       },

@@ -168,7 +168,9 @@
   <div *ngSwitchCase="'vertical'"></div>
 </ng-container>
 <!-- {{ registerData.value | json }} -->
-<div class="container">
+<div class="container center mt-5">
+  <mat-card >
+    <mat-card-header style="padding-left: 40%;" > <h2>Register</h2></mat-card-header>
   <form [formGroup]="registerData" (ngSubmit)="register()">
 
   <mat-stepper class="example-stepper" [orientation]="(stepperOrientation | async)!">
@@ -317,6 +319,7 @@
    
   </mat-stepper>
 </form>
+</mat-card>
 </div>
 
 
