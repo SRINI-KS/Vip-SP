@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthServiceService } from 'src/app/Services/auth-service.service';
 
 @Component({
   selector: 'app-pnav-bar',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./pnav-bar.component.css']
 })
 export class PnavBarComponent {
+
+  constructor(private authService:AuthServiceService){}
+
+  logout(){
+    this.authService.logOut();
+  }
 
 }

@@ -36,6 +36,6 @@ export class ProviderGuard implements CanActivate, CanActivateChild, CanDeactiva
   }canLoad(
     route: Route,
     segments: UrlSegment[]): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return true;
+    return this.authService.isLogin()&&this.authService.isProvider();
   }
 }

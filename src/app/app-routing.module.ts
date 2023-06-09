@@ -10,7 +10,7 @@ import { HomeComponent } from './Components/home/home.component';
 const routes: Routes = [
   {
     path: 'home',
-    component: HomeComponent, 
+    component: HomeComponent,
   },
   {
     path: 'login',
@@ -27,15 +27,21 @@ const routes: Routes = [
   },
   {
     path: 'provider',
-    canActivate:[ProviderGuard],
+
     loadChildren: () =>
-      import('./Roles/Provider/Provider/provider.module').then((m) => m.ProviderModule),
+      import('./Roles/Provider/Provider/provider.module').then(
+        (m) => m.ProviderModule
+      ),
+    canActivate: [ProviderGuard],
+    canLoad: [ProviderGuard],
   },
   {
     path: 'user',
-    canActivate:[UserGuard],
+
     loadChildren: () =>
       import('./Roles/User/User/user.module').then((m) => m.UserModule),
+    canActivate: [UserGuard],
+    canLoad: [UserGuard],
   },
   {
     path: '**',
@@ -45,6 +51,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

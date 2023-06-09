@@ -1,1 +1,447 @@
-<p>add-request works!</p>
+<div class="container py-3 h-100">
+
+  <div class="row">
+    <!-- <form [formGroup]="request">
+    <div class="card col-lg-8 col-md-12 col-sm-12">
+      <mat-tab-group>
+        
+          <mat-tab label="Request Information">
+            <form formGroupName="basicInfo">
+              <div class="row py-3 h-100 w-100">
+                <mat-form-field appearance="outline" class="example-full-width">
+                  <mat-label>Request Title</mat-label>
+                  <input
+                    matInput
+                    placeholder=""
+                    formControlName="requestTitle"
+                  />
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="example-full-width">
+                  <mat-label>Category</mat-label>
+                  <mat-select formControlName="category">
+                    <mat-option
+                      #val
+                      (click)="sub(val.value)"
+                      *ngFor="let category of categoryOption"
+                      [value]="category"
+                    >
+                      {{ category }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <div>
+                  <mat-form-field
+                    appearance="outline"
+                    class="example-full-width"
+                  >
+                    <mat-label>Sub Category</mat-label>
+                    <mat-select formControlName="subCategory">
+                      <mat-option
+                        *ngFor="let category of subCategoryOption"
+                        [value]="category"
+                      >
+                        {{ category }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+
+                <mat-form-field appearance="outline" class="example-full-width">
+                  <mat-label>Request Discription</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="requestDiscription"
+                  ></textarea>
+                </mat-form-field>
+              </div>
+            </form>
+          </mat-tab>
+
+          <mat-tab label="Pricing">
+            <form formGroupName="pay">
+              <div class="row py-3 h-100 w-100">
+                <div>
+                  <div>
+                    <mat-radio-group
+                      aria-label="Select an option"
+                      formControlName="payType"
+                    >
+                      <mat-radio-button
+                        value="Range & Negotiable"
+                        (click)="showFields = false"
+                        [checked]="!showFields"
+                        >Range & Negotiable</mat-radio-button
+                      >
+                      <mat-radio-button
+                        value="Fixed"
+                        (click)="showFields = true"
+                        >Fixed</mat-radio-button
+                      >
+                    </mat-radio-group>
+                  </div>
+                  <div *ngIf="showFields">
+                    <mat-form-field appearance="outline">
+                      <mat-label>Fixed Pay</mat-label>
+                      <input
+                        matInput
+                        placeholder=""
+                        formControlName="fixedAmount"
+                      />
+                    </mat-form-field>
+                  </div>
+                  <div *ngIf="!showFields">
+                    <mat-form-field appearance="outline">
+                      <mat-label>From</mat-label>
+                      <input
+                        matInput
+                        placeholder=""
+                        formControlName="minAmount"
+                      />
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                      <mat-label>To</mat-label>
+                      <input
+                        matInput
+                        placeholder=""
+                        formControlName="maxAmount"
+                      />
+                    </mat-form-field>
+                  </div>
+                  <div>
+                    <mat-form-field appearance="outline">
+                      <mat-label>Pay</mat-label>
+                      <mat-select>
+                        <mat-option value="Per Year">Per Year</mat-option>
+                        <mat-option value="Per Month">Per Month</mat-option>
+                        <mat-option value="Per Week">Per Week</mat-option>
+                        <mat-option value="Per Hour">Per Hour</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="form-group col-3 colour">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Enter a date range</mat-label>
+                    <mat-date-range-input [rangePicker]="picker">
+                      <input
+                        matStartDate
+                        placeholder="Start date"
+                        name="start"
+                        formControlName="startDate"
+                      />
+                      <input
+                        matEndDate
+                        placeholder="End date"
+                        formControlName="endDate"
+                        name="End"
+                      />
+                    </mat-date-range-input>
+                    <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle
+                      matIconSuffix
+                      [for]="picker"
+                    ></mat-datepicker-toggle>
+                    <mat-date-range-picker #picker></mat-date-range-picker>
+                  </mat-form-field>
+                </div>
+              </div>
+            </form>
+          </mat-tab>
+
+          <mat-tab label="Address">
+            <form formGroupName="address">
+              <div class="row py-3 h-100 w-100">
+                <p>
+                  <mat-form-field
+                    class="example-full-width"
+                    appearance="outline"
+                  >
+                    <mat-label>Address</mat-label>
+                    <textarea
+                      matInput
+                      formControlName="currentAddress"
+                    ></textarea>
+                  </mat-form-field>
+                </p>
+
+                <mat-form-field appearance="outline">
+                  <mat-label>City</mat-label>
+                  <input
+                    matInput
+                    placeholder="Ex. San Francisco"
+                    formControlName="city"
+                  />
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                  <mat-label>State</mat-label>
+                  <input
+                    matInput
+                    placeholder="Ex. California"
+                    formControlName="state"
+                  />
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                  <mat-label>Country</mat-label>
+                  <input
+                    matInput
+                    placeholder="Ex. California"
+                    formControlName="country"
+                  />
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                  <mat-label>Postal Code</mat-label>
+                  <input
+                    type="number"
+                    matInput
+                    #postalCode
+                    maxlength="6"
+                    placeholder="Ex. 941054"
+                    formControlName="pinCode"
+                  />
+                  <mat-hint align="end"
+                    >{{ postalCode.value.length }} / 6</mat-hint
+                  >
+                </mat-form-field>
+              </div>
+            </form>
+          </mat-tab>
+       
+      </mat-tab-group>
+    </div>
+  </form> -->
+
+    <div class="card col-lg-8 col-md-12 col-sm-12" style="height: 500px;">
+      <form [formGroup]="request" (ngSubmit)="register()">
+
+        <mat-tab-group>
+
+          <mat-tab label="Request Information">
+            <div class="row py-3 h-100 w-100">
+              <mat-form-field appearance="outline" class="example-full-width">
+                <mat-label>Request Title</mat-label>
+                <input matInput placeholder="" formControlName="requestTitle" />
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="example-full-width">
+                <mat-label>Category</mat-label>
+                <mat-select formControlName="category">
+                  <mat-option
+                    #val
+                    (click)="sub(val.value)"
+                    *ngFor="let category of categoryOption"
+                    [value]="category"
+                  >
+                    {{ category }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <div>
+                <mat-form-field appearance="outline" class="example-full-width">
+                  <mat-label>Sub Category</mat-label>
+                  <mat-select formControlName="subCategory">
+                    <mat-option
+                      *ngFor="let category of subCategoryOption"
+                      [value]="category"
+                    >
+                      {{ category }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+
+              <mat-form-field appearance="outline" class="example-full-width">
+                <mat-label>Request Discription</mat-label>
+                <textarea
+                  matInput
+                  formControlName="requestDiscription"
+                ></textarea>
+              </mat-form-field>
+            </div>
+          </mat-tab>
+
+          <mat-tab label="Pricing">
+            <div class="row py-3 h-100 w-100">
+              <div>
+                <div>
+                  <mat-radio-group
+                    aria-label="Select an option"
+                    formControlName="payType"
+                  >
+                    <mat-radio-button
+                      value="Range & Negotiable"
+                      (click)="showFields = false"
+                      [checked]="!showFields"
+                      >Range & Negotiable</mat-radio-button
+                    >
+                    <mat-radio-button value="Fixed" (click)="showFields = true"
+                      >Fixed</mat-radio-button
+                    >
+                  </mat-radio-group>
+                </div>
+                <div *ngIf="showFields">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Fixed Pay</mat-label>
+                    <input
+                      matInput
+                      placeholder=""
+                      formControlName="fixedAmount"
+                    />
+                  </mat-form-field>
+                </div>
+                <div *ngIf="!showFields">
+                  <mat-form-field appearance="outline">
+                    <mat-label>From</mat-label>
+                    <input
+                      matInput
+                      placeholder=""
+                      formControlName="minAmount"
+                    />
+                  </mat-form-field>
+                  <mat-form-field appearance="outline">
+                    <mat-label>To</mat-label>
+                    <input
+                      matInput
+                      placeholder=""
+                      formControlName="maxAmount"
+                    />
+                  </mat-form-field>
+                </div>
+                <div>
+                  <mat-form-field appearance="outline">
+                    <mat-label>Pay</mat-label>
+                    <mat-select formControlName="payType">
+                      <mat-option value="Per Year">Per Year</mat-option>
+                      <mat-option value="Per Month">Per Month</mat-option>
+                      <mat-option value="Per Week">Per Week</mat-option>
+                      <mat-option value="Per Hour">Per Hour</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="form-group col-3 colour">
+                <mat-form-field appearance="outline">
+                  <mat-label>Enter a date range</mat-label>
+                  <mat-date-range-input [rangePicker]="picker">
+                    <input
+                      matStartDate
+                      placeholder="Start date"
+                      name="start"
+                      formControlName="startDate"
+                    />
+                    <input
+                      matEndDate
+                      placeholder="End date"
+                      formControlName="endDate"
+                      name="End"
+                    />
+                  </mat-date-range-input>
+                  <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+                  <mat-datepicker-toggle
+                    matIconSuffix
+                    [for]="picker"
+                  ></mat-datepicker-toggle>
+                  <mat-date-range-picker #picker></mat-date-range-picker>
+                </mat-form-field>
+              </div>
+            </div>
+          </mat-tab>
+          <mat-tab label="Address">
+            <div class="row py-3 h-100 w-100">
+              <p>
+                <mat-form-field class="example-full-width" appearance="outline">
+                  <mat-label>Address</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="currentAddress"
+                  ></textarea>
+                </mat-form-field>
+              </p>
+
+              <mat-form-field appearance="outline">
+                <mat-label>City</mat-label>
+                <input
+                  matInput
+                  placeholder="Ex. San Francisco"
+                  formControlName="city"
+                />
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>State</mat-label>
+                <input
+                  matInput
+                  placeholder="Ex. California"
+                  formControlName="state"
+                />
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Country</mat-label>
+                <input
+                  matInput
+                  placeholder="Ex. California"
+                  formControlName="country"
+                />
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Postal Code</mat-label>
+                <input
+                  type="number"
+                  matInput
+                  #postalCode
+                  maxlength="6"
+                  placeholder="Ex. 941054"
+                  formControlName="pinCode"
+                />
+                <mat-hint align="end"
+                  >{{ postalCode.value.length }} / 6</mat-hint
+                >
+              </mat-form-field>
+            </div>
+          </mat-tab>
+
+          <mat-tab label="Images">
+          <div>
+            <button type="submit" mat-raised-button>submit</button>
+          </div>  
+          </mat-tab>
+
+        
+        </mat-tab-group>
+      </form>
+        
+      
+    </div> 
+     <div class="col-lg-4 col-sm-12 col-md-12">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>Preview</mat-card-title>
+        </mat-card-header>
+        <img
+          mat-card-image
+          src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+          alt="Photo of a Shiba Inu"
+        />
+        <mat-card-content>
+          <p>
+            The Shiba Inu is the smallest of the six original and distinct spitz
+            breeds of dog from Japan. A small, agile dog that copes very well
+            with mountainous terrain, the Shiba Inu was originally bred for
+            hunting.
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>Submit</button>
+          <button mat-button>Reset</button>
+        </mat-card-actions>
+      </mat-card>
+    </div> 
+  </div>
+</div>

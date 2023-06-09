@@ -9,9 +9,11 @@ import { NotFoundComponent } from './Components/Error/not-found/not-found.compon
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialDesignModule } from './Modules/MaterialDesign/material-design/material-design.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {  HttpClientModule } from '@angular/common/http';
+import {  HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { HomeComponent } from './Components/home/home.component';
+import { DemoService } from './Roles/User/Services/Service/demo.service';
+import { AuthInterceptorService } from './Roles/User/Services/Service/Interceptor/auth-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import { HomeComponent } from './Components/home/home.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [    
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

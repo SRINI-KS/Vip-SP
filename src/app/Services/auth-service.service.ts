@@ -2,59 +2,56 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthServiceService {
+  constructor(private router: Router) {}
 
-  constructor(private router:Router) { }
-
-  setToken(token:any){
-    sessionStorage.setItem('Token',token);
+  setToken(token: any) {
+    localStorage.setItem('Token', token);
   }
-  setUsername(token:any){
-    sessionStorage.setItem('Username',token);
+  setUsername(token: any) {
+    localStorage.setItem('Username', token);
   }
-  setRole(token:any){
-    sessionStorage.setItem('Role',token);
-  }
-
-  logOut(){
- sessionStorage.removeItem('Token');
- this.router.navigate(['login']);
-
+  setRole(token: any) {
+    localStorage.setItem('Role', token);
   }
 
-  getToken(){
-    return sessionStorage.getItem('Token')
+  logOut() {
+    localStorage.removeItem('Token');
+    localStorage.removeItem('Username');
+    localStorage.removeItem('Role');
+    this.router.navigate(['home']);
   }
 
-  isLogin(){
+  getToken() {
+    return localStorage.getItem('Token');
+  }
+
+  isLogin() {
     return this.getToken() != null;
   }
 
-  isUser(){
-    let role:string;
-    role=String(sessionStorage.getItem('Role'))
-    console.log(role)
-    if(role=='CUSTOMER'){
-      return true
+  isUser() {
+    let role: string;
+    role = String(localStorage.getItem('Role'));
+    console.log(role);
+    if (role == 'CUSTOMER') {
+      return true;
+    } else {
+      return false;
     }
-    else{
-      return false
-    }
-    
-
   }
-  isProvider(){
-    let role:string;
-    role=String(sessionStorage.getItem('Role'))
-    if(role=='PROVIDER'){
-      return true
+  isProvider() {
+    let role: string;
+    role = String(localStorage.getItem('Role'));
+    if (role == 'PROVIDER') {
+      return true;
+    } else {
+      return false;
     }
-    else{
-      return false
-    }
-
   }
-
+  getUserName(){
+    return localStorage.getItem('Username')
+  }
 }

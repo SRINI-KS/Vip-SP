@@ -37,6 +37,6 @@ export class UserGuard implements CanActivate, CanActivateChild, CanDeactivate<u
   }canLoad(
     route: Route,
     segments: UrlSegment[]): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return true;
+    return this.authService.isLogin()&&this.authService.isUser();;
   }
 }
