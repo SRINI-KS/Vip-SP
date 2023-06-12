@@ -10,6 +10,7 @@ import { MaterialDesignModule } from 'src/app/Modules/MaterialDesign/material-de
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { DragDirective } from '../Directives/drag.directive';
 
 @NgModule({
   declarations: [
@@ -25,8 +26,8 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
     MaterialDesignModule,
     ReactiveFormsModule,
     FormsModule,
-    CarouselModule
-    
+    CarouselModule,
+    DragDirective    
   ],
   providers: [],
 })

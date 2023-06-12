@@ -30,3 +30,33 @@ img {
   max-width: 100%;
   object-fit: contain;
 }
+.dropzone{
+  height: 350px;
+  min-width: 400px;
+  display: table;
+  background-color:rgb(245, 245, 245);
+  border: dashed 1px rgb(137, 133, 133);
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+.test-wrapper{
+  display: table-cell;
+  vertical-align: middle;
+}
+.centered{
+text-align: center;
+}
+.btn-remove-image{
+  position: absolute;
+  cursor: pointer;
+  top: 10px;
+  right: 500px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: auto;
+  text-align: center;
+}

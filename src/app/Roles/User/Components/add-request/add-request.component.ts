@@ -145,4 +145,10 @@ prepareFormData(request:RequestModel):FormData{
   // get imageControl(){
   //   return this.request.controls["images"] as FormArray
   // }
+  fileDropped(fileHandle:any){
+this.request.images.push(fileHandle)
+  }
+  removeImage(i:number){
+this.request.images.splice(i,1)
+  }
 }
