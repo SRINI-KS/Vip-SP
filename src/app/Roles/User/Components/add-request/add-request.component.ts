@@ -1,10 +1,15 @@
+import { Component } from '@angular/core';
 import {
-  Component,
-} from '@angular/core';
-import {
-  FormBuilder,FormGroup, Validators
+  FormArray,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
 } from '@angular/forms';
 import { AddrequestService } from './Services/addrequest.service';
+import { FileHandle } from 'src/Model/file-handle.model';
+import { DomSanitizer } from '@angular/platform-browser';
+import { RequestModel } from './requestModel';
 
 @Component({
   selector: 'app-add-request',
@@ -39,28 +44,48 @@ export class AddRequestComponent {
   //     pinCode: [''],
   //   }),
   // });
-  request:FormGroup = this.formBuilder.group({
-   
-      requestTitle: ['',Validators.required],
-      category: ['',Validators.required],
-      subCategory: ['',Validators.required],
-      requestDiscription: ['',Validators.required],
-   
-      fixedAmount: [''],
-      minAmount: [''],
-      maxAmount: [''],
-      payType:['',Validators.required],
-      startDate:['',Validators.required],
-      endDate:['',Validators.required],
+  // request:FormGroup = this.formBuilder.group({
 
-    
-      currentAddress: ['',Validators.required],
-      country: ['',Validators.required],
-      city: ['',Validators.required],
-      state: ['',Validators.required],
-      pinCode: ['',Validators.required],
-    
-  });
+  //     requestTitle: ['',Validators.required],
+  //     category: ['',Validators.required],
+  //     subCategory: ['',Validators.required],
+  //     requestDiscription: ['',Validators.required],
+
+  //     fixedAmount: [''],
+  //     minAmount: [''],
+  //     maxAmount: [''],
+  //     payType:['',Validators.required],
+  //     startDate:['',Validators.required],
+  //     endDate:['',Validators.required],
+
+  //     currentAddress: ['',Validators.required],
+  //     country: ['',Validators.required],
+  //     city: ['',Validators.required],
+  //     state: ['',Validators.required],
+  //     pinCode: ['',Validators.required],
+
+  //     images:new FormArray([
+
+  //     ])
+  // });
+  request: RequestModel = {
+    requestTitle: '',
+    category: '',
+    subCategory: '',
+    requestDiscription: '',
+    fixedAmount: 0,
+    minAmount: 0,
+    maxAmount: 0,
+    payType: '',
+    startDate: '',
+    endDate: '',
+    currentAddress: '',
+    country: '',
+    city: '',
+    state: '',
+    pinCode: 0,
+    images: [],
+  };
 
   sub(val: string) {
     let subCat: any = this.requestService.getSubCategory();
@@ -69,13 +94,55 @@ export class AddRequestComponent {
   }
   constructor(
     private formBuilder: FormBuilder,
-    private requestService: AddrequestService
+    private requestService: AddrequestService,
+    private sanitizer: DomSanitizer
   ) {}
 
   categoryOption: string[] = this.requestService.category;
   subCategoryOption!: string[];
 
-  register(){
-    console.log(this.request.value)
+  register() {
+    // console.log(JSON.stringify(this.request.value))
+    // if(1){
+    //   this.requestService.request(this.request.value).subscribe(
+    //     (Response)=>{
+    //       console.log(Response)
+    //     }
+    //   )
+    // }
+    const data=this.prepareFormData(this.request)
+    this.requestService.request(data).subscribe((Response) => {
+      console.log(Response);
+    });
+    console.log(this.request);
   }
+prepareFormData(request:RequestModel):FormData{
+  const formData=new FormData();
+  formData.append('request',
+  new Blob([JSON.stringify(request)],{type:'application/json'})
+  );
+  for(var i=0;i<request.images.length;i++){
+    formData.append('image',
+    request.images[i].file,
+    request.images[i].file.name)
+  }
+  return formData;
+}
+  onFileSelected(event: any) {
+    if (event.target.files) {
+      const file = event.target.files[0];
+
+      const fileHandle: FileHandle = {
+        file: file,
+        url: this.sanitizer.bypassSecurityTrustUrl(
+          window.URL.createObjectURL(file)
+        ),
+      };
+      //  this.imageControl.push(fileHandle)
+      this.request.images.push(fileHandle);
+    }
+  }
+  // get imageControl(){
+  //   return this.request.controls["images"] as FormArray
+  // }
 }

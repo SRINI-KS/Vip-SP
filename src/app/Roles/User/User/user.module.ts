@@ -8,9 +8,8 @@ import { UnavBarComponent } from '../Components/unav-bar/unav-bar.component';
 import { UserComponent } from './user.component';
 import { MaterialDesignModule } from 'src/app/Modules/MaterialDesign/material-design/material-design.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { DemoService } from '../Services/Service/demo.service';
-import { AuthInterceptorService } from '../Services/Service/Interceptor/auth-interceptor.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 @NgModule({
   declarations: [
@@ -25,7 +24,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     UserRoutingModule,
     MaterialDesignModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    CarouselModule
+    
   ],
   providers: [],
 })

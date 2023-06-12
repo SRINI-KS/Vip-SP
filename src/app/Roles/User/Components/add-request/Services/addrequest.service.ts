@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, map } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -88,4 +89,9 @@ export class AddrequestService {
     // console.log(val)
     return subCategory;
   }
+
+  request(data:FormData){
+
+    return this.http.post(`${environment.apiUrl}addRequest`,data);
+ } 
 }

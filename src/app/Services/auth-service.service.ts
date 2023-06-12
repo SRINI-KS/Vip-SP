@@ -35,7 +35,6 @@ export class AuthServiceService {
   isUser() {
     let role: string;
     role = String(localStorage.getItem('Role'));
-    console.log(role);
     if (role == 'CUSTOMER') {
       return true;
     } else {
