@@ -420,8 +420,8 @@
       </form> -->
 
     <!--  -->
-    <form (ngSubmit)="register()">
-      <div class="card col-lg-8 col-md-12 col-sm-12" style="height: 500px">
+    <div class="card col-lg-8 col-md-8 col-sm-12" style="height: 500px">
+      <form (ngSubmit)="register()">
         <mat-tab-group>
           <mat-tab label="Request Information">
             <div class="row py-3 h-100 w-100">
@@ -625,17 +625,15 @@
 
           <mat-tab label="Images">
             <div>
-              <div class="dropzone" 
-              appDrag
-              (files)="fileDropped($event)">
+              <div class="dropzone" appDrag (files)="fileDropped($event)">
                 <div class="test-wrapper">
                   <div class="centered">
                     Drag and drop your file or
-                 
-                      <a (click)="selectFile.click()" mat-button color="primary"
-                        >browse</a
-                      >
-                    
+
+                    <a (click)="selectFile.click()" mat-button color="primary"
+                      >browse</a
+                    >
+
                     a file
                   </div>
                 </div>
@@ -650,42 +648,45 @@
                 (change)="onFileSelected($event)"
               />
             </div>
-          
+          </mat-tab>
+          <mat-tab label="Submit">
+            <div class="centered mt-5">
+              <button type="submit" mat-raised-button color="primary">
+                submit
+              </button>
+            </div>
           </mat-tab>
         </mat-tab-group>
+      </form>
+      <!--  -->
+    </div>
+    <div class="col-lg-4 col-sm-12 col-md-12">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>Preview</mat-card-title>
+        </mat-card-header>
 
-        <!--  -->
-      </div>
-      <div class="col-lg-4 col-sm-12 col-md-12">
-        <mat-card class="example-card">
-          <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title>Preview</mat-card-title>
-          </mat-card-header>
-        
-          <div class="card-img-wrapper">
-            <carousel [noPause]="false" [isAnimated]="true">
-              <slide *ngFor="let item of request.images; let i=index;">
-                <span class="btn-remove-image" (click)="removeImage(i)">X</span>
-                <img [src]="item.url" alt="first slide" class="card-img-top" />
-              </slide>
-            </carousel>
-          </div>
+        <div class="card-img-wrapper">
+          <carousel [noPause]="false" [isAnimated]="true">
+            <slide *ngFor="let item of request.images; let i = index">
+              <span class="btn-remove-image" (click)="removeImage(i)">X</span>
+              <img [src]="item.url" alt="first slide" class="card-img-top" />
+            </slide>
+          </carousel>
+        </div>
 
-          <mat-card-content>
-            <p>
-              The Shiba Inu is the smallest of the six original and distinct
-              spitz breeds of dog from Japan. A small, agile dog that copes very
-              well with mountainous terrain, the Shiba Inu was originally bred
-              for hunting.
-            </p>
-          </mat-card-content>
-          <mat-card-actions>
-            <button type="submit" mat-raised-button color="primary">submit</button>
-            <button mat-raised-button color="warn">Reset</button>
-          </mat-card-actions>
-        </mat-card>
-      </div>
-    </form>
+        <mat-card-content>
+          <p></p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button type="submit" mat-raised-button color="primary">
+            submit
+          </button>
+          <button mat-raised-button color="warn">Reset</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+    <!-- </form> -->
   </div>
 </div>

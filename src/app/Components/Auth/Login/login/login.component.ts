@@ -3,7 +3,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from './LoginService/login.service';
 import { AuthServiceService } from 'src/app/Services/auth-service.service';
 import { Router } from '@angular/router';
-
+import * as alertify from 'alertifyjs';
+import { AlertifyService } from 'src/app/Services/Alertify/alertify.service';
+import { HttpErrorResponse } from '@angular/common/http';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,7 +14,8 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit{
 
   constructor(private f: FormBuilder,private loginService:LoginService,
-    private authService:AuthServiceService, private router:Router) {}
+    private authService:AuthServiceService, private router:Router,
+    private alertify:AlertifyService) {}
 
   ngOnInit(): void {
 
@@ -34,12 +37,17 @@ export class LoginComponent implements OnInit{
 
       this.loginService.loginUser(this.loginForm.value).subscribe(
         (Response:any)=>{
-          this.authService.setToken(Response.token)
-          this.authService.setUsername(Response.username)
-          this.authService.setRole(Response.role)
+          this.authService.setToken(Response.data.token)
+          this.authService.setUsername(Response.data.username)
+          this.authService.setRole(Response.data.role)
+          this.alertify.success("Login Success")
           this.loginForm.reset()
           this.ngOnInit()
           console.log(Response)
+
+        },
+        (Error:HttpErrorResponse)=>{
+          this.alertify.error(Error.message)
         }
       )
     }

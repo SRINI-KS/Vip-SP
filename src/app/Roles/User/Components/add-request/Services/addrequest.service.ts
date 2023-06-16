@@ -92,6 +92,6 @@ export class AddrequestService {
 
   request(data:FormData){
 
-    return this.http.post(`${environment.apiUrl}addRequest`,data);
+    return this.http.post(`${environment.apiUrl}api/v1/addRequest`,data);
  } 
 }

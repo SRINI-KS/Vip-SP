@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {  HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { HomeComponent } from './Components/home/home.component';
+import { JwtInterceptor } from './Interceptor/Jwt/jwt.interceptor';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,8 @@ import { HomeComponent } from './Components/home/home.component';
     HttpClientModule
   ],
   providers: [    
+   
+
     ],
   bootstrap: [AppComponent]
 })

@@ -17,6 +17,9 @@ import { ErrorStateMatcher } from '@angular/material/core';
 import { Observable, map } from 'rxjs';
 import { RegisterModel } from './RegisterModel';
 import { RegisterService } from './Service/register.service';
+import { Router } from '@angular/router';
+import { AlertifyService } from 'src/app/Services/Alertify/alertify.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-register',
@@ -63,6 +66,26 @@ export class RegisterComponent implements OnInit {
   //         professional:["",Validators.required]
   //   }),
   // });
+  // registerData = this._formBuilder.group({
+  //   firstname: ['', Validators.required],
+  //   lastname: ['', Validators.required],
+  //   dob: ['', Validators.required],
+  //   gender: ['', Validators.required],
+
+  //   email: ['', Validators.required],
+  //   password: ['', Validators.required],
+  //   phoneNumber: ['', Validators.required],
+
+  //   currentAddress: ['', Validators.required],
+  //   country: ['', Validators.required],
+  //   city: ['', Validators.required],
+  //   state: ['', Validators.required],
+  //   pinCode: ['', Validators.required],
+  //   liveLocation: [''],
+
+  //   role: ['', Validators.required],
+  //   professional: [''],
+  // });
   registerData = this._formBuilder.group({
     firstname: ['', Validators.required],
     lastname: ['', Validators.required],
@@ -73,15 +96,8 @@ export class RegisterComponent implements OnInit {
     password: ['', Validators.required],
     phoneNumber: ['', Validators.required],
 
-    currentAddress: ['', Validators.required],
-    country: ['', Validators.required],
-    city: ['', Validators.required],
-    state: ['', Validators.required],
-    pinCode: ['', Validators.required],
-    liveLocation: [''],
-
     role: ['', Validators.required],
-    professional: [''],
+    profession: [''],
   });
 
   data(value: any) {
@@ -95,14 +111,15 @@ export class RegisterComponent implements OnInit {
   constructor(
     private _formBuilder: FormBuilder,
     breakpointObserver: BreakpointObserver,
-    private regService:RegisterService
+    private regService: RegisterService,
+    private router: Router,
+    private alertify:AlertifyService
   ) {
     this.stepperOrientation = breakpointObserver
       .observe('(min-width: 800px)')
       .pipe(map(({ matches }) => (matches ? 'horizontal' : 'vertical')));
   }
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   // addInputPro(){
   //   let details=this._formBuilder.group({professional:[''],professional2:['']})
@@ -110,17 +127,19 @@ export class RegisterComponent implements OnInit {
   // }
 
   register() {
-    if(this.registerData.valid){
-      this.regService.registerUser(this.registerData.value).subscribe(
-        (Response)=>{
-          console.log(Response)
+    console.log(this.registerData.value)
+    if (this.registerData.valid) {
+      this.regService
+        .registerUser(this.registerData.value)
+        .subscribe((Response) => {
+          console.log(Response);
+          this.alertify.success("Register Success")
+          this.router.navigate(['login']);
+        },
+        (Error:HttpErrorResponse)=>{
+          this.alertify.error(Error.error)
         }
-      )
+        );
     }
-    
   }
-
-  
-
-  
 }
