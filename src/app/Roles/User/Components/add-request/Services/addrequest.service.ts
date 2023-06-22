@@ -94,4 +94,9 @@ export class AddrequestService {
 
     return this.http.post(`${environment.apiUrl}api/v1/addRequest`,data);
  } 
+
+ get(){
+  return this.http.get(`${environment.apiUrl}api/v1/demo`);
+
+ }
 }

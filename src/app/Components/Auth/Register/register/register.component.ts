@@ -128,7 +128,9 @@ export class RegisterComponent implements OnInit {
 
   register() {
     console.log(this.registerData.value)
-    if (this.registerData.valid) {
+    if (this.registerData) {
+      console.log("dksjflksajflksj")
+
       this.regService
         .registerUser(this.registerData.value)
         .subscribe((Response) => {

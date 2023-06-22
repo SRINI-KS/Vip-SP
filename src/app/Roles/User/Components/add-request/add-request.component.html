@@ -420,7 +420,7 @@
       </form> -->
 
     <!--  -->
-    <div class="card col-lg-8 col-md-8 col-sm-12" style="height: 500px">
+    <div class=" col-md-12 col-lg-8 col-sm-12" style="height: 500px">
       <form (ngSubmit)="register()">
         <mat-tab-group>
           <mat-tab label="Request Information">
@@ -624,7 +624,7 @@
           </mat-tab>
 
           <mat-tab label="Images">
-            <div>
+            <div class="image">
               <div class="dropzone" appDrag (files)="fileDropped($event)">
                 <div class="test-wrapper">
                   <div class="centered">
@@ -646,47 +646,72 @@
                 value="Select"
                 #selectFile
                 (change)="onFileSelected($event)"
-              />
+              />           
+              
             </div>
+            <div>
+              <mat-grid-list cols="2" rowHeight="2:1">
+                <mat-grid-tile> <div class="image-container " *ngFor="let item of request.images">
+                  <img class=" col img-for" [src]="item.url" alt="">
+                </div></mat-grid-tile>
+                
+              </mat-grid-list>
+            </div>
+           
           </mat-tab>
           <mat-tab label="Submit">
             <div class="centered mt-5">
               <button type="submit" mat-raised-button color="primary">
                 submit
               </button>
+             
+
             </div>
           </mat-tab>
         </mat-tab-group>
       </form>
       <!--  -->
     </div>
-    <div class="col-lg-4 col-sm-12 col-md-12">
-      <mat-card class="example-card">
-        <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>Preview</mat-card-title>
-        </mat-card-header>
-
-        <div class="card-img-wrapper">
-          <carousel [noPause]="false" [isAnimated]="true">
-            <slide *ngFor="let item of request.images; let i = index">
-              <span class="btn-remove-image" (click)="removeImage(i)">X</span>
-              <img [src]="item.url" alt="first slide" class="card-img-top" />
-            </slide>
-          </carousel>
+    <!-- <div class="col-lg-4">
+      <div class="container1">
+        <div class="images">
+          <img
+            src="http://mistillas.cl/wp-content/uploads/2018/04/Nike-Epic-React-Flyknit-%E2%80%9CPearl-Pink%E2%80%9D-01.jpg"
+          />
         </div>
-
-        <mat-card-content>
-          <p></p>
-        </mat-card-content>
-        <mat-card-actions>
-          <button type="submit" mat-raised-button color="primary">
-            submit
-          </button>
-          <button mat-raised-button color="warn">Reset</button>
-        </mat-card-actions>
-      </mat-card>
-    </div>
-    <!-- </form> -->
+        <div class="slideshow-buttons">
+          <div class="one"></div>
+          <div class="two"></div>
+          <div class="three"></div>
+          <div class="four"></div>
+        </div>
+        <p class="pick">choose size</p>
+        <div class="sizes">
+          <div class="size">5</div>
+          <div class="size">6</div>
+          <div class="size">7</div>
+          <div class="size">8</div>
+          <div class="size">9</div>
+          <div class="size">10</div>
+          <div class="size">11</div>
+          <div class="size">12</div>
+        </div>
+        <div class="product">
+          <p>Women's Running Shoe</p>
+          <h1>Nike Epic React Flyknit</h1>
+          <h2>$150</h2>
+          <p class="desc">
+            The Nike Epic React Flyknit foam cushioning is responsive yet
+            light-weight, durable yet soft. This creates a sensation that not
+            only enhances the feeling of moving forward, but makes running feel
+            fun, too.
+          </p>
+          <div class="buttons">
+            <button class="add">Add to Cart</button>
+            <button class="like"><span>♥</span></button>
+          </div>
+        </div>
+      </div>
+    </div> -->
   </div>
 </div>

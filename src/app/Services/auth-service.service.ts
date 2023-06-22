@@ -16,6 +16,9 @@ export class AuthServiceService {
   setRole(token: any) {
     localStorage.setItem('Role', token);
   }
+  setEmail(token: any) {
+    localStorage.setItem('Email', token);
+  }
 
   logOut() {
     localStorage.removeItem('Token');
@@ -52,5 +55,8 @@ export class AuthServiceService {
   }
   getUserName(){
     return localStorage.getItem('Username')
+  }
+  getEmail(){
+    return localStorage.getItem('Email')
   }
 }

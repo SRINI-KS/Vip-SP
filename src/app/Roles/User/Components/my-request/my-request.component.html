@@ -1,0 +1,23 @@
+
+
+<div class="row w-100">
+  <div class="col-lg-4 "></div>
+  <div class="col col-lg-8 col-md-8 col-xl-8 col-sm-8">
+  <div class="card " *ngFor="let item of allRequest">
+    <div class="row g-0">
+      <div class="col-md-4 img ">
+        <img [src]="item.images[0].url" class="img-fluid  rounded-start" alt="...">
+      </div>
+      <div class="col-md-8 ">
+        <div class="card-body">
+          <h3 class="card-title">{{item.requestTitle}}</h3>
+          <h6 class="card-subtitle">{{item.category}}</h6>
+
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

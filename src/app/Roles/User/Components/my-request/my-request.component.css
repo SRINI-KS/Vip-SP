@@ -1,0 +1,13 @@
+.img {
+  width: auto; /* Adjust the desired maximum width */
+  height: auto;
+  overflow:hidden;
+margin: auto;
+border: 1px solid;
+ 
+}
+img{
+  width: 300px; /* Adjust the desired maximum width */
+  height: auto;
+  aspect-ratio: 40px;
+}

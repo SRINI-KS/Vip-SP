@@ -13,7 +13,6 @@ import { MaterialDesignModule } from 'src/app/Modules/MaterialDesign/material-de
     ProviderComponent,
     UserQueryComponent,
     PnavBarComponent,
-    ProviderComponent
   ],
   imports: [
     CommonModule,

@@ -6,6 +6,7 @@ import { RegisterComponent } from './Components/Auth/Register/register/register.
 import { ProviderGuard } from './Guards/ProviderGuard/provider.guard';
 import { UserGuard } from './Guards/UserGuard/user.guard';
 import { HomeComponent } from './Components/home/home.component';
+import { CardComponent } from './Components/Cards/card/card.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,7 @@ const routes: Routes = [
     path: 'register',
     component: RegisterComponent,
   },
+ 
   {
     path: '',
     redirectTo: '/home',

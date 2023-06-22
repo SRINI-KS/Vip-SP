@@ -1,6 +1,7 @@
 import { FileHandle } from 'src/Model/file-handle.model';
 
 export interface RequestModel {
+  email:string;
   requestTitle: string;
   category: string;
   subCategory: string;
@@ -18,6 +19,7 @@ export interface RequestModel {
   city: string;
   state: string;
   pinCode: number;
+
 
   images: FileHandle[];
 }

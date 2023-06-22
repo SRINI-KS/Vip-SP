@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   FormArray,
   FormBuilder,
@@ -10,14 +10,17 @@ import { AddrequestService } from './Services/addrequest.service';
 import { FileHandle } from 'src/Model/file-handle.model';
 import { DomSanitizer } from '@angular/platform-browser';
 import { RequestModel } from './requestModel';
+import { Router } from '@angular/router';
+import { AuthServiceService } from 'src/app/Services/auth-service.service';
 
 @Component({
   selector: 'app-add-request',
   templateUrl: './add-request.component.html',
   styleUrls: ['./add-request.component.css'],
 })
-export class AddRequestComponent {
+export class AddRequestComponent implements OnInit{
   showFields = false;
+  itemsPerSlide = 3;
 
   // request:FormGroup = this.formBuilder.group({
   //   basicInfo: this.formBuilder.group({
@@ -69,6 +72,7 @@ export class AddRequestComponent {
   //     ])
   // });
   request: RequestModel = {
+    email:'',
     requestTitle: '',
     category: '',
     subCategory: '',
@@ -95,8 +99,14 @@ export class AddRequestComponent {
   constructor(
     private formBuilder: FormBuilder,
     private requestService: AddrequestService,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private router:Router,
+    private authService:AuthServiceService
   ) {}
+  ngOnInit(): void {
+  const email=this.authService.getEmail()
+  this.request.email=String(email)
+  }
 
   categoryOption: string[] = this.requestService.category;
   subCategoryOption!: string[];
@@ -112,9 +122,11 @@ export class AddRequestComponent {
     // }
     const data=this.prepareFormData(this.request)
     this.requestService.request(data).subscribe((Response) => {
+
       console.log(Response);
+      this.router.navigate(['user/myrequest'])
+
     });
-    console.log(this.request);
   }
 prepareFormData(request:RequestModel):FormData{
   const formData=new FormData();
@@ -150,5 +162,12 @@ this.request.images.push(fileHandle)
   }
   removeImage(i:number){
 this.request.images.splice(i,1)
+  }
+  get(){
+    this.requestService.get().subscribe(
+      (Response)=>{
+        console.log(Response)
+      }
+    )
   }
 }

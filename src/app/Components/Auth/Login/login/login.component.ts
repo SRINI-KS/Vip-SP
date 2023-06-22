@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit{
           this.authService.setToken(Response.data.token)
           this.authService.setUsername(Response.data.username)
           this.authService.setRole(Response.data.role)
+          this.authService.setEmail(Response.data.email)
           this.alertify.success("Login Success")
           this.loginForm.reset()
           this.ngOnInit()

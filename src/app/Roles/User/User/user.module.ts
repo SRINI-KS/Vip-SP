@@ -7,10 +7,11 @@ import { AddRequestComponent } from '../Components/add-request/add-request.compo
 import { UnavBarComponent } from '../Components/unav-bar/unav-bar.component';
 import { UserComponent } from './user.component';
 import { MaterialDesignModule } from 'src/app/Modules/MaterialDesign/material-design/material-design.module';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { DragDirective } from '../Directives/drag.directive';
+import { MyRequestComponent } from '../Components/my-request/my-request.component';
+import { CardComponent } from 'src/app/Components/Cards/card/card.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,8 @@ import { DragDirective } from '../Directives/drag.directive';
     AddRequestComponent,
     UnavBarComponent,
     UserComponent,
+    MyRequestComponent,
+    CardComponent
   ],
   imports: [
     CommonModule,
@@ -27,7 +30,8 @@ import { DragDirective } from '../Directives/drag.directive';
     ReactiveFormsModule,
     FormsModule,
     CarouselModule,
-    DragDirective    
+    DragDirective ,
+    CarouselModule.forRoot()   
   ],
   providers: [],
 })

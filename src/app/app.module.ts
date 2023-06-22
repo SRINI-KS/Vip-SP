@@ -9,10 +9,11 @@ import { NotFoundComponent } from './Components/Error/not-found/not-found.compon
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialDesignModule } from './Modules/MaterialDesign/material-design/material-design.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {  HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { HomeComponent } from './Components/home/home.component';
 import { JwtInterceptor } from './Interceptor/Jwt/jwt.interceptor';
+
 
 @NgModule({
   declarations: [
@@ -22,6 +23,8 @@ import { JwtInterceptor } from './Interceptor/Jwt/jwt.interceptor';
     NotFoundComponent,
     NavbarComponent,
     HomeComponent,
+  
+    
   ],
   imports: [
     BrowserModule,
@@ -32,10 +35,7 @@ import { JwtInterceptor } from './Interceptor/Jwt/jwt.interceptor';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [    
-   
-
-    ],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
