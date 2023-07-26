@@ -9,17 +9,14 @@ import { AuthServiceService } from 'src/app/Services/auth-service.service';
 export class UnavBarComponent implements AfterViewInit{
    @ViewChild ('menu_button')  button!:ElementRef;
    @ViewChild ('menu')  menu!:ElementRef;
-   @ViewChildren(UnavBarComponent) el?:QueryList<UnavBarComponent>;
 
   constructor(private authService:AuthServiceService){
   
   }
   ngAfterViewInit(): void {
     this.button.nativeElement.addEventListener('click', () => {
-      console.log("dskfjalskfj")
         this.menu.nativeElement.classList.toggle('hidden');
        });
-       this.el?.forEach((el)=>console.log("menu",el))
   }
 
   // username
