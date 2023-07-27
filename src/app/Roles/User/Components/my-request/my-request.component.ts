@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RequestModel } from '../add-request/requestModel';
+import { RequestModel } from '../../../../../Model/RequestModel/requestModel';
 import { MyRequestService } from './Service/my-request.service';
 import { FileHandle } from 'src/Model/file-handle.model';
 import { DomSanitizer } from '@angular/platform-browser';

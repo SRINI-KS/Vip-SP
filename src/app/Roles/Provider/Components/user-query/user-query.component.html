@@ -21,12 +21,14 @@
     </div>
 </section> -->
 
-<section class="grid grid-cols-3 gap-16 w-5/6 border mx-auto mt-10">
-    <div class="shadow-2xl overflow-hidden rounded-2xl ">
-        <img src="../../../../../assets/images/your-request-high-resolution-logo-black-on-white-background.jpeg" class="w-full h-52 object-cover"  alt="">
-        <div>electrical</div>
-        <div>20 $</div>
-        <div>chennai</div>
+<section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-16 w-5/6  mx-auto mt-10">
+    <div *ngFor="let item of userRequest" class="shadow-xl overflow-hidden rounded-2xl ">
+        <img [src]="item.images[0].url" class="w-full h-52 object-contain"  alt="">
+      <div class="flex flex-col p-2 items-center">
+        <span>{{item.category}}</span>
+        <span>{{item.subCategory}}</span>
+        <span>{{item.fixedAmount}}</span>
+    </div>
     </div>
     
 </section>

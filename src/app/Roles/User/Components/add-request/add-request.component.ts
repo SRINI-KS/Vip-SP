@@ -9,7 +9,7 @@ import {
 import { AddrequestService } from './Services/addrequest.service';
 import { FileHandle } from 'src/Model/file-handle.model';
 import { DomSanitizer } from '@angular/platform-browser';
-import { RequestModel } from './requestModel';
+import { RequestModel } from '../../../../../Model/RequestModel/requestModel';
 import { Router } from '@angular/router';
 import { AuthServiceService } from 'src/app/Services/auth-service.service';
 

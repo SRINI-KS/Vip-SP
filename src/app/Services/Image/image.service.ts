@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
+import { RequestModel } from 'src/Model/RequestModel/requestModel';
 import { FileHandle } from 'src/Model/file-handle.model';
-import { RequestModel } from 'src/app/Roles/User/Components/add-request/requestModel';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ImageService {
+  
   constructor(private sanitizer: DomSanitizer) {}
   createImages(request: RequestModel) {
     const requestImages: any[] = request.images;
