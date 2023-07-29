@@ -18,7 +18,7 @@ import { AuthServiceService } from 'src/app/Services/auth-service.service';
   templateUrl: './add-request.component.html',
   styleUrls: ['./add-request.component.css'],
 })
-export class AddRequestComponent implements OnInit{
+export class AddRequestComponent implements OnInit {
   showFields = false;
   itemsPerSlide = 3;
 
@@ -72,14 +72,14 @@ export class AddRequestComponent implements OnInit{
   //     ])
   // });
   request: RequestModel = {
-    email:'',
+    email: '',
     requestTitle: '',
     category: '',
     subCategory: '',
     requestDiscription: '',
-    fixedAmount: 0,
-    minAmount: 0,
-    maxAmount: 0,
+    fixedAmount: null,
+    minAmount: null,
+    maxAmount: null,
     payType: '',
     startDate: '',
     endDate: '',
@@ -87,7 +87,7 @@ export class AddRequestComponent implements OnInit{
     country: '',
     city: '',
     state: '',
-    pinCode: 0,
+    pinCode: null,
     images: [],
   };
 
@@ -100,27 +100,19 @@ export class AddRequestComponent implements OnInit{
     private formBuilder: FormBuilder,
     private requestService: AddrequestService,
     private sanitizer: DomSanitizer,
-    private router:Router,
-    private authService:AuthServiceService
-  ) {}
+    private router: Router,
+    private authService: AuthServiceService
+  ) { }
   ngOnInit(): void {
-  const email=this.authService.getEmail()
-  this.request.email=String(email)
+    const email = this.authService.getEmail()
+    this.request.email = String(email)
   }
 
   categoryOption: string[] = this.requestService.category;
   subCategoryOption!: string[];
 
   register() {
-    // console.log(JSON.stringify(this.request.value))
-    // if(1){
-    //   this.requestService.request(this.request.value).subscribe(
-    //     (Response)=>{
-    //       console.log(Response)
-    //     }
-    //   )
-    // }
-    const data=this.prepareFormData(this.request)
+    const data = this.prepareFormData(this.request)
     this.requestService.request(data).subscribe((Response) => {
 
       console.log(Response);
@@ -128,18 +120,18 @@ export class AddRequestComponent implements OnInit{
 
     });
   }
-prepareFormData(request:RequestModel):FormData{
-  const formData=new FormData();
-  formData.append('request',
-  new Blob([JSON.stringify(request)],{type:'application/json'})
-  );
-  for(var i=0;i<request.images.length;i++){
-    formData.append('image',
-    request.images[i].file,
-    request.images[i].file.name)
+  prepareFormData(request: RequestModel): FormData {
+    const formData = new FormData();
+    formData.append('request',
+      new Blob([JSON.stringify(request)], { type: 'application/json' })
+    );
+    for (var i = 0; i < request.images.length; i++) {
+      formData.append('image',
+        request.images[i].file,
+        request.images[i].file.name)
+    }
+    return formData;
   }
-  return formData;
-}
   onFileSelected(event: any) {
     if (event.target.files) {
       const file = event.target.files[0];
@@ -150,22 +142,19 @@ prepareFormData(request:RequestModel):FormData{
           window.URL.createObjectURL(file)
         ),
       };
-      //  this.imageControl.push(fileHandle)
       this.request.images.push(fileHandle);
     }
   }
-  // get imageControl(){
-  //   return this.request.controls["images"] as FormArray
-  // }
-  fileDropped(fileHandle:any){
-this.request.images.push(fileHandle)
+
+  fileDropped(fileHandle: any) {
+    this.request.images.push(fileHandle)
   }
-  removeImage(i:number){
-this.request.images.splice(i,1)
+  removeImage(i: number) {
+    this.request.images.splice(i, 1)
   }
-  get(){
+  get() {
     this.requestService.get().subscribe(
-      (Response)=>{
+      (Response) => {
         console.log(Response)
       }
     )

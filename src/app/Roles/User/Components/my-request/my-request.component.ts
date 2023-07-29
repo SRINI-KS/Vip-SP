@@ -30,7 +30,7 @@ export class MyRequestComponent implements OnInit {
       map((x:any,i)=>x.map((request:RequestModel) => this.imageService.createImages(request)))
     ).subscribe((Response: any) => {
 this.allRequest=Response
-      console.log(Response[0].images[0].url);
+      console.log(this.allRequest);
 
     });
   }

@@ -1,13 +1,9 @@
-.img {
-  width: auto; /* Adjust the desired maximum width */
-  height: auto;
-  overflow:hidden;
-margin: auto;
-border: 1px solid;
- 
+
+.container {
+  margin-top:5rem;
+  max-width:50%;
 }
-img{
-  width: 300px; /* Adjust the desired maximum width */
-  height: auto;
-  aspect-ratio: 40px;
+
+.space-y-4 {
+    padding:25px;
 }

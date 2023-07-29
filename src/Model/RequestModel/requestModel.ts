@@ -7,9 +7,9 @@ export interface RequestModel {
   subCategory: string;
   requestDiscription: string;
 
-  fixedAmount: number;
-  minAmount: number;
-  maxAmount: number;
+  fixedAmount: number|null;
+  minAmount: number|null;
+  maxAmount: number|null;
   payType: string;
   startDate: string;
   endDate: string;
@@ -18,7 +18,7 @@ export interface RequestModel {
   country: string;
   city: string;
   state: string;
-  pinCode: number;
+  pinCode: number|null;
 
 
   images: FileHandle[];

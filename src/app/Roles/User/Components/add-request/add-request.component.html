@@ -1,13 +1,11 @@
-<div class="container py-3 h-100">
-  <div class="row">
-    <!-- <form [formGroup]="request">
+<!-- <form [formGroup]="request">
     <div class="card col-lg-8 col-md-12 col-sm-12">
       <mat-tab-group>
         
           <mat-tab label="Request Information">
             <form formGroupName="basicInfo">
               <div class="row py-3 h-100 w-100">
-                <mat-form-field appearance="outline" class="example-full-width">
+                <mat-form-field appearance="fill" class="example-full-width">
                   <mat-label>Request Title</mat-label>
                   <input
                     matInput
@@ -16,7 +14,7 @@
                   />
                 </mat-form-field>
 
-                <mat-form-field appearance="outline" class="example-full-width">
+                <mat-form-field appearance="fill" class="example-full-width">
                   <mat-label>Category</mat-label>
                   <mat-select formControlName="category">
                     <mat-option
@@ -214,7 +212,7 @@
     </div>
   </form> -->
 
-    <!-- <div class="card col-lg-8 col-md-12 col-sm-12" style="height: 500px;">
+<!-- <div class="card col-lg-8 col-md-12 col-sm-12" style="height: 500px;">
       <form [formGroup]="request" (ngSubmit)="register()">
 
         <mat-tab-group>
@@ -419,299 +417,186 @@
         </mat-tab-group>
       </form> -->
 
-    <!--  -->
-    <div class=" col-md-12 col-lg-8 col-sm-12" style="height: 500px">
-      <form (ngSubmit)="register()">
-        <mat-tab-group>
-          <mat-tab label="Request Information">
-            <div class="row py-3 h-100 w-100">
-              <mat-form-field appearance="outline" class="example-full-width">
-                <mat-label>Request Title</mat-label>
-                <input
-                  name="requestTitle"
-                  [(ngModel)]="request.requestTitle"
-                  matInput
-                  placeholder=""
-                />
-              </mat-form-field>
+<!--  -->
+<section class="flex mt-20 ">
+  <div class=" mx-auto border p-5 relative">
+    <form (ngSubmit)="register()">
 
-              <mat-form-field appearance="outline" class="example-full-width">
-                <mat-label>Category</mat-label>
-                <mat-select name="category" [(ngModel)]="request.category">
-                  <mat-option
-                    #val
-                    (click)="sub(val.value)"
-                    *ngFor="let category of categoryOption"
-                    [value]="category"
-                  >
-                    {{ category }}
-                  </mat-option>
-                </mat-select>
-              </mat-form-field>
-              <div>
-                <mat-form-field appearance="outline" class="example-full-width">
-                  <mat-label>Sub Category</mat-label>
-                  <mat-select
-                    name="subCategory"
-                    [(ngModel)]="request.subCategory"
-                  >
-                    <mat-option
-                      *ngFor="let category of subCategoryOption"
-                      [value]="category"
-                    >
-                      {{ category }}
-                    </mat-option>
-                  </mat-select>
-                </mat-form-field>
-              </div>
+      <div >
+        <h1 class="mb-2 mt-0 text-5xl  text-center font-medium leading-tight text-slate-700">
+          Request Information
+        </h1>
+        <div class="row py-3 h-100 w-100">
+          <mat-form-field appearance="fill" class="example-full-width">
+            <mat-label>Request Title</mat-label>
+            <input name="requestTitle" [(ngModel)]="request.requestTitle" matInput placeholder="" />
+          </mat-form-field>
 
-              <mat-form-field appearance="outline" class="example-full-width">
-                <mat-label>Request Discription</mat-label>
-                <textarea
-                  name="requestDiscription"
-                  [(ngModel)]="request.requestDiscription"
-                  matInput
-                ></textarea>
+          <mat-form-field appearance="fill" class="example-full-width">
+            <mat-label>Category</mat-label>
+            <mat-select name="category" [(ngModel)]="request.category">
+              <mat-option #val (click)="sub(val.value)" *ngFor="let category of categoryOption" [value]="category">
+                {{ category }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <div>
+            <mat-form-field appearance="fill" class="example-full-width">
+              <mat-label>Sub Category</mat-label>
+              <mat-select name="subCategory" [(ngModel)]="request.subCategory">
+                <mat-option *ngFor="let category of subCategoryOption" [value]="category">
+                  {{ category }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <mat-form-field appearance="fill" class="example-full-width">
+            <mat-label>Request Discription</mat-label>
+            <textarea name="requestDiscription" [(ngModel)]="request.requestDiscription" matInput></textarea>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div label="Pricing">
+        <h1 class="mb-2 mt-0 text-5xl  text-center font-medium leading-tight text-slate-700">
+          Pricing
+        </h1>
+        <div class="row py-3 h-100 w-100">
+          <div>
+            <div>
+              <mat-radio-group >
+                <mat-radio-button value="Range & Negotiable" (click)="showFields = false" [checked]="!showFields">Range
+                  & Negotiable</mat-radio-button>
+                <mat-radio-button value="Fixed" (click)="showFields = true">Fixed</mat-radio-button>
+              </mat-radio-group>
+            </div>
+            <div *ngIf="showFields">
+              <mat-form-field appearance="fill">
+                <mat-label>Fixed Pay</mat-label>
+                <input matInput placeholder="" name="fixedAmount" [(ngModel)]="request.fixedAmount" />
               </mat-form-field>
             </div>
-          </mat-tab>
-
-          <mat-tab label="Pricing">
-            <div class="row py-3 h-100 w-100">
-              <div>
-                <div>
-                  <mat-radio-group>
-                    <mat-radio-button
-                      value="Range & Negotiable"
-                      (click)="showFields = false"
-                      [checked]="!showFields"
-                      >Range & Negotiable</mat-radio-button
-                    >
-                    <mat-radio-button value="Fixed" (click)="showFields = true"
-                      >Fixed</mat-radio-button
-                    >
-                  </mat-radio-group>
-                </div>
-                <div *ngIf="showFields">
-                  <mat-form-field appearance="outline">
-                    <mat-label>Fixed Pay</mat-label>
-                    <input
-                      matInput
-                      placeholder=""
-                      name="fixedAmount"
-                      [(ngModel)]="request.fixedAmount"
-                    />
-                  </mat-form-field>
-                </div>
-                <div *ngIf="!showFields">
-                  <mat-form-field appearance="outline">
-                    <mat-label>From</mat-label>
-                    <input
-                      matInput
-                      placeholder=""
-                      name="minAmount"
-                      [(ngModel)]="request.minAmount"
-                    />
-                  </mat-form-field>
-                  <mat-form-field appearance="outline">
-                    <mat-label>To</mat-label>
-                    <input
-                      matInput
-                      placeholder=""
-                      name="maxAmount"
-                      [(ngModel)]="request.maxAmount"
-                    />
-                  </mat-form-field>
-                </div>
-                <div>
-                  <mat-form-field appearance="outline">
-                    <mat-label>Pay</mat-label>
-                    <mat-select name="payType" [(ngModel)]="request.payType">
-                      <mat-option value="Per Year">Per Year</mat-option>
-                      <mat-option value="Per Month">Per Month</mat-option>
-                      <mat-option value="Per Week">Per Week</mat-option>
-                      <mat-option value="Per Hour">Per Hour</mat-option>
-                    </mat-select>
-                  </mat-form-field>
-                </div>
-              </div>
-              <div class="form-group col-3 colour">
-                <mat-form-field appearance="outline">
-                  <mat-label>Enter a date range</mat-label>
-                  <mat-date-range-input [rangePicker]="picker">
-                    <input
-                      matStartDate
-                      placeholder="Start date"
-                      [(ngModel)]="request.startDate"
-                      name="start"
-                    />
-                    <input
-                      matEndDate
-                      placeholder="End date"
-                      [(ngModel)]="request.endDate"
-                      name="End"
-                    />
-                  </mat-date-range-input>
-                  <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
-                  <mat-datepicker-toggle
-                    matIconSuffix
-                    [for]="picker"
-                  ></mat-datepicker-toggle>
-                  <mat-date-range-picker #picker></mat-date-range-picker>
-                </mat-form-field>
-              </div>
-            </div>
-          </mat-tab>
-          <mat-tab label="Address">
-            <div class="row py-3 h-100 w-100">
-              <p>
-                <mat-form-field class="example-full-width" appearance="outline">
-                  <mat-label>Address</mat-label>
-                  <textarea
-                    matInput
-                    name="currentAddress"
-                    [(ngModel)]="request.currentAddress"
-                  ></textarea>
-                </mat-form-field>
-              </p>
-
-              <mat-form-field appearance="outline">
-                <mat-label>City</mat-label>
-                <input
-                  matInput
-                  placeholder="Ex. San Francisco"
-                  name="city"
-                  [(ngModel)]="request.city"
-                />
+            <div *ngIf="!showFields">
+              <mat-form-field appearance="fill">
+                <mat-label>From</mat-label>
+                <input matInput placeholder="" name="minAmount" [(ngModel)]="request.minAmount" />
               </mat-form-field>
-
-              <mat-form-field appearance="outline">
-                <mat-label>State</mat-label>
-                <input
-                  matInput
-                  placeholder="Ex. California"
-                  name="state"
-                  [(ngModel)]="request.state"
-                />
+              <mat-form-field appearance="fill">
+                <mat-label>To</mat-label>
+                <input matInput placeholder="" name="maxAmount" [(ngModel)]="request.maxAmount" />
               </mat-form-field>
-
-              <mat-form-field appearance="outline">
-                <mat-label>Country</mat-label>
-                <input
-                  matInput
-                  placeholder="Ex. California"
-                  name="country"
-                  [(ngModel)]="request.country"
-                />
-              </mat-form-field>
-
-              <mat-form-field appearance="outline">
-                <mat-label>Postal Code</mat-label>
-                <input
-                  type="number"
-                  matInput
-                  #postalCode
-                  maxlength="6"
-                  placeholder="Ex. 941054"
-                  name="pinCode"
-                  [(ngModel)]="request.pinCode"
-                />
-                <mat-hint align="end"
-                  >{{ postalCode.value.length }} / 6</mat-hint
-                >
-              </mat-form-field>
-            </div>
-          </mat-tab>
-
-          <mat-tab label="Images">
-            <div class="image">
-              <div class="dropzone" appDrag (files)="fileDropped($event)">
-                <div class="test-wrapper">
-                  <div class="centered">
-                    Drag and drop your file or
-
-                    <a (click)="selectFile.click()" mat-button color="primary"
-                      >browse</a
-                    >
-
-                    a file
-                  </div>
-                </div>
-              </div>
-
-              <input
-                type="file"
-                style="display: none"
-                multiple
-                value="Select"
-                #selectFile
-                (change)="onFileSelected($event)"
-              />           
-              
             </div>
             <div>
-              <mat-grid-list cols="2" rowHeight="2:1">
-                <mat-grid-tile> <div class="image-container " *ngFor="let item of request.images">
-                  <img class=" col img-for" [src]="item.url" alt="">
-                </div></mat-grid-tile>
-                
-              </mat-grid-list>
+              <mat-form-field appearance="fill" class="example-full-width">
+                <mat-label>Pay</mat-label>
+                <mat-select name="payType" [(ngModel)]="request.payType">
+                  <mat-option value="Per Year">Per Year</mat-option>
+                  <mat-option value="Per Month">Per Month</mat-option>
+                  <mat-option value="Per Week">Per Week</mat-option>
+                  <mat-option value="Per Hour">Per Hour</mat-option>
+                </mat-select>
+              </mat-form-field>
             </div>
-           
-          </mat-tab>
-          <mat-tab label="Submit">
-            <div class="centered mt-5">
-              <button type="submit" mat-raised-button color="primary">
-                submit
-              </button>
-             
-
-            </div>
-          </mat-tab>
-        </mat-tab-group>
-      </form>
-      <!--  -->
-    </div>
-    <!-- <div class="col-lg-4">
-      <div class="container1">
-        <div class="images">
-          <img
-            src="http://mistillas.cl/wp-content/uploads/2018/04/Nike-Epic-React-Flyknit-%E2%80%9CPearl-Pink%E2%80%9D-01.jpg"
-          />
-        </div>
-        <div class="slideshow-buttons">
-          <div class="one"></div>
-          <div class="two"></div>
-          <div class="three"></div>
-          <div class="four"></div>
-        </div>
-        <p class="pick">choose size</p>
-        <div class="sizes">
-          <div class="size">5</div>
-          <div class="size">6</div>
-          <div class="size">7</div>
-          <div class="size">8</div>
-          <div class="size">9</div>
-          <div class="size">10</div>
-          <div class="size">11</div>
-          <div class="size">12</div>
-        </div>
-        <div class="product">
-          <p>Women's Running Shoe</p>
-          <h1>Nike Epic React Flyknit</h1>
-          <h2>$150</h2>
-          <p class="desc">
-            The Nike Epic React Flyknit foam cushioning is responsive yet
-            light-weight, durable yet soft. This creates a sensation that not
-            only enhances the feeling of moving forward, but makes running feel
-            fun, too.
-          </p>
-          <div class="buttons">
-            <button class="add">Add to Cart</button>
-            <button class="like"><span>♥</span></button>
+          </div>
+          <div class="form-group col-3 colour" >
+            <mat-form-field appearance="fill" class="example-full-width">
+              <mat-label>Enter a date range</mat-label>
+              <mat-date-range-input [rangePicker]="picker">
+                <input matStartDate placeholder="Start date" [(ngModel)]="request.startDate" name="start" />
+                <input matEndDate placeholder="End date" [(ngModel)]="request.endDate" name="End" />
+              </mat-date-range-input>
+              <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+              <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-date-range-picker #picker></mat-date-range-picker>
+            </mat-form-field>
           </div>
         </div>
       </div>
-    </div> -->
+      <div label="Address">
+        <h1 class="mb-2 mt-0 text-5xl  text-center font-medium leading-tight text-slate-700">
+          Address
+        </h1>
+        <div class="row py-3 h-100 w-100">
+          <p>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Address</mat-label>
+              <textarea matInput name="currentAddress" [(ngModel)]="request.currentAddress"></textarea>
+            </mat-form-field>
+          </p>
+
+          <mat-form-field appearance="fill">
+            <mat-label>City</mat-label>
+            <input matInput placeholder="Ex. San Francisco" name="city" [(ngModel)]="request.city" />
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>State</mat-label>
+            <input matInput placeholder="Ex. California" name="state" [(ngModel)]="request.state" />
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Country</mat-label>
+            <input matInput placeholder="Ex. California" name="country" [(ngModel)]="request.country" />
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Postal Code</mat-label>
+            <input type="number" matInput #postalCode maxlength="6" placeholder="Ex. 941054" name="pinCode"
+              [(ngModel)]="request.pinCode" />
+            <mat-hint align="end">{{ postalCode.value.length }} / 6</mat-hint>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div label="Images">
+        <h1 class="mb-2 mt-0 text-5xl  text-center font-medium leading-tight text-slate-700">
+          Images
+        </h1>
+        
+        <div class="image">
+          <div class="dropzone" appDrag (files)="fileDropped($event)">
+            <div class="test-wrapper">
+              <div class="centered">
+                Drag and drop your file or
+
+                <a (click)="selectFile.click()" mat-button color="primary">browse</a>
+
+                a file
+              </div>
+            </div>
+          </div>
+
+          <input type="file" style="display: none" multiple value="Select" #selectFile
+            (change)="onFileSelected($event)" />
+
+        </div>
+        <div>
+          <!-- <mat-grid-list cols="2" rowHeight="2:1">
+            <mat-grid-tile> -->
+              <div class="image-container " *ngFor="let item of request.images">
+                <img class=" img-for" [src]="item.url" alt="">
+              </div>
+            <!-- </mat-grid-tile>
+          </mat-grid-list> -->
+        </div>
+
+      </div>
+
+      <div class=" absolute bottom-0 right-2/4">
+        
+        <div >
+          <button type="submit" class="top-0" mat-raised-button color="primary">
+            submit
+          </button>
+
+
+
+
+
+        </div>
+      </div>
+    </form>
   </div>
-</div>
+
+</section>

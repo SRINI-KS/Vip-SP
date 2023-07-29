@@ -10,35 +10,8 @@ import { environment } from 'src/environments/environment';
 export class AddrequestService {
   constructor(private router: Router, private http: HttpClient) {}
 
-  // category: string[] = [
-  //   'Administration business and management',
-  //   'Alternative therapies',
-  //   'Animals land and environment',
-  //   'Computing and ICT',
-  //   'Construction and building',
-  //   'Design arts and crafts',
-  //   'Education and training',
-  //   'Engineering',
-  //   'Facilities and property services',
-  //   'Financial services',
-  //   'Garage services',
-  //   'Hairdressing and beauty',
-  //   'Healthcare',
-  //   'Heritage culture and libraries',
-  //   'Hospitality catering and tourism',
-  //   'Languages',
-  //   'Legal and court services',
-  //   'Manufacturing and production',
-  //   'Performing arts and media',
-  //   'Print and publishing marketing and advertising',
-  //   'Retail and customer services',
-  //   'Science mathematics and statistic',
-  //   'Security uniformed and protective services',
-  //   'Social sciences and religion',
-  //   'Social work and caring services',
-  //   'Sport and leisure',
-  //   'Transport distribution and logistics',
-  // ];
+  
+ 
   category: string[] = [
     'Accountant',
     'Administrative',
@@ -773,6 +746,15 @@ export class AddrequestService {
     // console.log(val)
     return subCategory;
   }
+
+//   category:String[]=['Electrical',]
+//   getSubCategory() {
+//       const subCategory: { [key: string]: string[] } = {
+//         Electrical: [
+          
+//         ]
+//   }
+// }
 
   request(data: FormData) {
     return this.http.post(`${environment.apiUrl}api/v1/addRequest`, data);
