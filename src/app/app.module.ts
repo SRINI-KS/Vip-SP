@@ -14,7 +14,6 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
 import { HomeComponent } from './Components/home/home.component';
 import { JwtInterceptor } from './Interceptor/Jwt/jwt.interceptor';
 
-
 @NgModule({
   declarations: [
     AppComponent,

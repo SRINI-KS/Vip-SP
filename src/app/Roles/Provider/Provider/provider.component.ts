@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-provider',
@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./provider.component.css']
 })
 export class ProviderComponent {
+  screenWidth!:number
+  screenHeight!:number
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event:any) {
+    this.screenWidth = window.innerWidth;
+    this.screenHeight = window.innerHeight;
+  }
 
 }

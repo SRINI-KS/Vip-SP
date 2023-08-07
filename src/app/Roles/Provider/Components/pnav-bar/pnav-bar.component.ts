@@ -8,8 +8,7 @@ import { AuthServiceService } from 'src/app/Services/auth-service.service';
 })
 export class PnavBarComponent implements AfterViewInit{
   highlight=1;
-  // @ViewChild ('menu_button')  button!:ElementRef;
-  //  @ViewChild ('menu')  menu!:ElementRef;
+  
   @ViewChild ('menu_button')  button!:ElementRef;
 
    @ViewChild ('menu')  menu!:ElementRef;
@@ -17,10 +16,7 @@ export class PnavBarComponent implements AfterViewInit{
 
   constructor(private authService:AuthServiceService){}
   userName=this.authService.getUserName()
-  // ngAfterViewInit(): void {
-  //   this.button.nativeElement.addEventListener('click', () => {
-  //     this.menu.nativeElement.classList.toggle('hidden');
-  //    });  }
+
  ngAfterViewInit(): void {
   this.button.nativeElement.addEventListener('click', () => {
         this.menu.nativeElement.classList.toggle('hidden');

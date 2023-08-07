@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
 
+  @ViewChild ('menu_button')  button!:ElementRef;
+
+   @ViewChild ('menu')  menu!:ElementRef;
+
+
+
+ ngAfterViewInit(): void {
+  this.button.nativeElement.addEventListener('click', () => {
+        this.menu.nativeElement.classList.toggle('hidden');
+       }); 
+ }
 }

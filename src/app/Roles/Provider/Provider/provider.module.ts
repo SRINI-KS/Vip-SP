@@ -6,6 +6,7 @@ import { PnavBarComponent } from '../Components/pnav-bar/pnav-bar.component';
 import { UserQueryComponent } from '../Components/user-query/user-query.component';
 import { ProviderComponent } from './provider.component';
 import { MaterialDesignModule } from 'src/app/Modules/MaterialDesign/material-design/material-design.module';
+import { SharedModule } from 'src/app/Modules/shared/shared.module';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { MaterialDesignModule } from 'src/app/Modules/MaterialDesign/material-de
   imports: [
     CommonModule,
     ProviderRoutingModule,
-    MaterialDesignModule
+    MaterialDesignModule,
+    SharedModule
   ],
 bootstrap:[ProviderComponent]
 })

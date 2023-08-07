@@ -1,94 +1,11 @@
-<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand">Vip-SP</a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarTogglerDemo02"
-      aria-controls="navbarTogglerDemo02"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <button style="color: white;" mat-button [matMenuTriggerFor]="menu">Menu</button>
-          <mat-menu #menu="matMenu">
-            <button mat-menu-item>Profile</button>
-            <button mat-menu-item (click)="logout()">Logout</button>
-          </mat-menu>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav> -->
-
-<!-- <div>
-  <header>
-    <nav class="
-          flex flex-wrap
-          items-center
-          justify-between
-          w-full
-          py-3
-          md:py-0
-          px-4
-          text-lg text-gray-700
-          bg-white
-         
-        ">
-      <div>
-        <a routerLink="userhome" class="text-black">
-          Vip Request
-        </a>
-      </div>
-
-      <svg xmlns="http://www.w3.org/2000/svg" id="menu-button" #menu_button
-        class="h-6 w-6 cursor-pointer md:hidden block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
-
-      <div class="hidden w-full md:flex md:items-center md:w-auto" id="menu" #menu>
-        <ul class="
-              pt-4
-              text-base text-white
-              md:flex
-              md:justify-between 
-              md:pt-0
-              ">
-          <li>
-            <a #menu_button routerLink="addrequest" class="md:p-4 py-2 block">Post Request</a>
-
-          </li>
-          <li>
-            <a #menu_button routerLink="myrequest" class="md:p-4 py-2 block">My Request</a>
-          </li>
-
-          <li>
-            <a #menu_button class="md:p-4 py-2 block">Blog</a>
-          </li>
-          <li>
-            <a (click)="logout()" class="md:p-4 py-2 block ">LogOut</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </header>
-
-
-
-</div> -->
-
+]
 <nav class="pt-5">
   <div class="md:flex justify-between w-5/6 md:max-w-7xl mx-auto items-center ">
     <div class="flex justify-between">
-      <div class="">
+      <a class="" routerLink="/">
         <img src="../../../../../assets/images/your-request-high-resolution-logo-black-on-white-background.svg"
           class="w-28 text-red-500" alt="">
-      </div>
+      </a>
       <div class="md:hidden pt-4 pr-8">
         <button #menu_button>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -101,15 +18,12 @@
     </div>
     <div #menu class="pt-3 flex justify-end hidden w-full md:block md:items-center md:w-auto pr-8">
       <ul class="md:flex  md:space-x-8 space-y-8 md:space-y-0">
-        <li class="navMenu "> <a>Request</a></li>
-        <li class="navMenu"><a>My Service</a></li>
+        <li class="navMenu "> <a routerLink="/">User Request</a></li>
+        <li class="navMenu"><a routerLink="accept">My Service</a></li>
         <li class="navMenu"><a>
             {{userName|uppercase}}
-          </a></li>
-          <li class="navMenu" (click)="logout()"><a>LogOut</a></li>
-
-
-
+          </a></li> 
+        <li class="navMenu" (click)="logout()"><a>LogOut</a></li>
         <li class="px-3 py-2 ">
           <button class="">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
@@ -119,19 +33,15 @@
                 clip-rule="evenodd" />
             </svg>
           </button>
-
         </li>
       </ul>
     </div>
   </div>
 </nav>
-
 <section>
   <div class="flex flex-col md:flex-row w-3/5 md:4/6 mx-auto justify-around mt-8 ">
     <button class="btnStyle" (click)="changeBg(1)" [ngClass]="{'selectBg':highlight==1}">Electrical</button>
     <button class="btnStyle" (click)="changeBg(2)" [ngClass]="{'selectBg':highlight==2}">Plumbing</button>
     <button class="btnStyle" (click)="changeBg(3)" [ngClass]="{'selectBg':highlight==3}">Home Service</button>
-
   </div>
 </section>
-
