@@ -91,11 +91,11 @@ export class AddRequestComponent implements OnInit {
     images: [],
   };
 
-  sub(val: string) {
-    let subCat: any = this.requestService.getSubCategory();
+  // sub(val: string) {
+  //   let subCat: any = this.requestService.getSubCategory();
 
-    this.subCategoryOption = subCat[val];
-  }
+  //   this.subCategoryOption = subCat[val];
+  // }
   constructor(
     private formBuilder: FormBuilder,
     private requestService: AddrequestService,
@@ -108,8 +108,10 @@ export class AddRequestComponent implements OnInit {
     this.request.email = String(email)
   }
 
+  // categoryOption: string[] = this.requestService.category;
+  // subCategoryOption!: string[];
   categoryOption: string[] = this.requestService.category;
-  subCategoryOption!: string[];
+
 
   register() {
     const data = this.prepareFormData(this.request)

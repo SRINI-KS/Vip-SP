@@ -12,6 +12,7 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { DragDirective } from '../Directives/drag.directive';
 import { MyRequestComponent } from '../Components/my-request/my-request.component';
 import { CardComponent } from 'src/app/Components/Cards/card/card.component';
+import { SharedModule } from 'src/app/Modules/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { CardComponent } from 'src/app/Components/Cards/card/card.component';
     FormsModule,
     CarouselModule,
     DragDirective ,
-    CarouselModule.forRoot()   
+    CarouselModule.forRoot()   ,
+    SharedModule
   ],
   providers: [],
 })

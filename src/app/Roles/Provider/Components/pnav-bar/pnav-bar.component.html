@@ -1,4 +1,4 @@
-]
+
 <nav class="pt-5">
   <div class="md:flex justify-between w-5/6 md:max-w-7xl mx-auto items-center ">
     <div class="flex justify-between">
@@ -23,17 +23,17 @@
         <li class="navMenu"><a>
             {{userName|uppercase}}
           </a></li> 
-        <li class="navMenu" (click)="logout()"><a>LogOut</a></li>
-        <li class="px-3 py-2 ">
-          <button class="">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-              class="w-6 h-6 text-red-500">
-              <path fill-rule="evenodd"
-                d="M7.5 6v.75H5.513c-.96 0-1.764.724-1.865 1.679l-1.263 12A1.875 1.875 0 004.25 22.5h15.5a1.875 1.875 0 001.865-2.071l-1.263-12a1.875 1.875 0 00-1.865-1.679H16.5V6a4.5 4.5 0 10-9 0zM12 3a3 3 0 00-3 3v.75h6V6a3 3 0 00-3-3zm-3 8.25a3 3 0 106 0v-.75a.75.75 0 011.5 0v.75a4.5 4.5 0 11-9 0v-.75a.75.75 0 011.5 0v.75z"
-                clip-rule="evenodd" />
-            </svg>
-          </button>
-        </li>
+        <button class="Btn w-5" (click)="logout()">
+  
+          <div class="sign"><svg viewBox="0 0 512 512"><path d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"></path></svg></div>
+          
+          <div class="text">Logout</div>
+        </button>
+        
+        
+        
+
+     
       </ul>
     </div>
   </div>
