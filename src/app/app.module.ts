@@ -13,6 +13,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { HomeComponent } from './Components/home/home.component';
 import { JwtInterceptor } from './Interceptor/Jwt/jwt.interceptor';
+import { DialogComponent } from './Roles/Provider/Components/dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { JwtInterceptor } from './Interceptor/Jwt/jwt.interceptor';
     NotFoundComponent,
     NavbarComponent,
     HomeComponent,
+    DialogComponent,
   
     
   ],

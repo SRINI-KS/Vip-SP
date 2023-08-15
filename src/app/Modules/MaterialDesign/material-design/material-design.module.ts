@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+
 import { MatButtonModule } from '@angular/material/button';
 import {MatStepperModule} from '@angular/material/stepper';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -31,6 +32,14 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import {MatDialogModule} from '@angular/material/dialog';
+
+
+import { GalleriaModule } from 'primeng/galleria';
+import { CarouselModule } from 'primeng/carousel';
+import {ButtonModule} from 'primeng/button';
+
+
 
 
 const MaterialDesign=[MatButtonModule,
@@ -64,7 +73,11 @@ const MaterialDesign=[MatButtonModule,
   MatRadioModule,
   MatDatepickerModule,
   MatTooltipModule,
-  MatNativeDateModule
+  MatNativeDateModule,
+  MatDialogModule,
+  GalleriaModule,
+  CarouselModule,
+  ButtonModule
 
 
 ]

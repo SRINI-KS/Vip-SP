@@ -746,7 +746,7 @@ export class AddrequestService {
   //   return subCategory;
   // }
 
-  category:string[]=['Electrical','Plumbing','Electronics','Home Cleaning']
+  category:string[]=['Electrical','Plumbing','Electronics','Home Cleaning','Mechanical']
  
 
   request(data: FormData) {

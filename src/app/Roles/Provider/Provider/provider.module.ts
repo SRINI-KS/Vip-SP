@@ -19,7 +19,7 @@ import { SharedModule } from 'src/app/Modules/shared/shared.module';
     CommonModule,
     ProviderRoutingModule,
     MaterialDesignModule,
-    SharedModule
+    SharedModule,
   ],
 bootstrap:[ProviderComponent]
 })

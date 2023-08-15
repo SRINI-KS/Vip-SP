@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProviderComponent } from './provider.component';
 import { UserQueryComponent } from '../Components/user-query/user-query.component';
 import { PAcceptComponent } from '../Components/p-accept/p-accept.component';
+import { DialogComponent } from '../Components/dialog/dialog.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,7 @@ const routes: Routes = [
       {
         path:'accept',component:PAcceptComponent
       },
+      
     
       {
         path:'',redirectTo:'/provider/querylist',pathMatch:'full'

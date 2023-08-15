@@ -1,27 +1,41 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { RequestModel } from 'src/Model/RequestModel/requestModel';
 import { UserRequestService } from '../../Service/UserRequest/user-request.service';
 import { ImageService } from 'src/app/Services/Image/image.service';
 import { map } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from '../dialog/dialog.component';
+import { SpinnerComponent } from 'src/app/Components/spinner/spinner.component';
 @Component({
   selector: 'app-user-query',
   templateUrl: './user-query.component.html',
   styleUrls: ['./user-query.component.css']
 })
 export class UserQueryComponent implements OnInit {
-
+  @ViewChild('spinner', { read: ViewContainerRef }) spinner!: ViewContainerRef;
   userRequest: RequestModel[] = []
-  constructor(private userService: UserRequestService, private imageService: ImageService
+  constructor(private userService: UserRequestService, private imageService: ImageService, public dialog: MatDialog
   ) { }
   ngOnInit(): void {
     this.getAllRequest()
   }
   getAllRequest() {
     this.userService.requestAll().pipe(
-      map((x:any,i)=>x.map((request:RequestModel) => this.imageService.createImages(request)))
+      map((x: any, i) => x.map((request: RequestModel) => this.imageService.createImages(request)))
     ).subscribe((Response: any) => {
-this.userRequest=Response
-      console.log(this.userRequest);
+      this.userRequest = Response
     });
+  }
+  showDetails(request: RequestModel) {
+    this.dialog.open(DialogComponent, {
+      height: '90%',
+      width: '80%',
+      data: {
+        requestData: request,
+      },
+    });
+  }
+  createComponent() {
+    const spinnerRef = this.spinner.createComponent<SpinnerComponent>;
   }
 }

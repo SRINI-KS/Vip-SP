@@ -402,17 +402,16 @@
         </h1>
         <div class="row py-3 h-100 w-100">
           <mat-form-field appearance="fill" class="example-full-width">
-            <mat-label>Request Title</mat-label>
-            <input name="requestTitle" [(ngModel)]="request.requestTitle" matInput placeholder="" />
-          </mat-form-field>
-
-          <mat-form-field appearance="fill" class="example-full-width">
             <mat-label>Category</mat-label>
             <mat-select name="category" [(ngModel)]="request.category">
               <mat-option *ngFor="let category of categoryOption" [value]="category">
                 {{ category }}
               </mat-option>
             </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="example-full-width">
+            <mat-label>Request Title</mat-label>
+            <input name="requestTitle" [(ngModel)]="request.requestTitle" matInput placeholder="" />
           </mat-form-field>
           <!-- <mat-form-field appearance="fill" class="example-full-width">
             <mat-label>Category</mat-label>
@@ -422,7 +421,6 @@
               </mat-option>
             </mat-select>
           </mat-form-field>
-
           <div>
             <mat-form-field appearance="fill" class="example-full-width">
               <mat-label>Sub Category</mat-label>
@@ -547,7 +545,6 @@
           <input type="file" class="absolute inset-0 w-full h-full opacity-0 z-50" />
           <div class="text-center">
               <img class="mx-auto h-12 w-12" src="https://www.svgrepo.com/show/357902/image-upload.svg" alt="">
-      
               <h3 class="mt-2 text-sm font-medium text-gray-900">
                   <label for="file-upload" class="relative cursor-pointer">
                       <span>Drag and drop</span>
@@ -560,7 +557,6 @@
                   PNG, JPG, GIF up to 10MB
               </p>
           </div>
-      
           <img src="" class="mt-4 mx-auto max-h-40 hidden" id="preview">
       </div> -->
         <div>
