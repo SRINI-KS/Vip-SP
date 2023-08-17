@@ -37,5 +37,5 @@ export class UserQueryComponent implements OnInit {
   }
   createComponent() {
     const spinnerRef = this.spinner.createComponent<SpinnerComponent>;
-  }
+  }             
 }

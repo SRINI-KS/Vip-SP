@@ -72,7 +72,7 @@ export class AddRequestComponent implements OnInit {
   //     ])
   // });
   request: RequestModel = {
-    email: '',
+    userId: '',
     requestTitle: '',
     category: '',
     subCategory: '',
@@ -104,8 +104,8 @@ export class AddRequestComponent implements OnInit {
     private authService: AuthServiceService
   ) { }
   ngOnInit(): void {
-    const email = this.authService.getEmail()
-    this.request.email = String(email)
+    const userID = this.authService.getUserId()
+    this.request.userId = String(userID)
   }
 
   // categoryOption: string[] = this.requestService.category;

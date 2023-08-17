@@ -19,6 +19,9 @@ export class AuthServiceService {
   setEmail(token: any) {
     localStorage.setItem('Email', token);
   }
+  setUserId(token: any) {
+    localStorage.setItem('userId', token);
+  }
 
   logOut() {
     localStorage.removeItem('Token');
@@ -58,5 +61,8 @@ export class AuthServiceService {
   }
   getEmail(){
     return localStorage.getItem('Email')
+  }
+  getUserId(){
+    return localStorage.getItem('userId')
   }
 }

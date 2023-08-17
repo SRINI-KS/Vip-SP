@@ -41,6 +41,8 @@ export class LoginComponent implements OnInit{
           this.authService.setUsername(Response.data.username)
           this.authService.setRole(Response.data.role)
           this.authService.setEmail(Response.data.email)
+          this.authService.setUserId(Response.data.userId)
+
           this.alertify.success("Login Success")
           this.loginForm.reset()
           this.ngOnInit()

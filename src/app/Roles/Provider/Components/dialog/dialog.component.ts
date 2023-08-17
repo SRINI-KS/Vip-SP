@@ -34,4 +34,8 @@ export class DialogComponent implements OnInit {
     this.requestData = this.data.requestData
     this.images = this.data.requestData.images
   }
+
+  accept(){
+    
+  }
 }

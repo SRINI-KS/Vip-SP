@@ -2,7 +2,7 @@ import { FileHandle } from 'src/Model/file-handle.model';
 
 export interface RequestModel {
   [x: string]: any;
-  email:string;
+  userId:string;
   requestTitle: string;
   category: string;
   subCategory: string;

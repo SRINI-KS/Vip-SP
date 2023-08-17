@@ -23,7 +23,7 @@
               {{requestData.fixedAmount|currency:'INR'}}</span>
             <span *ngIf="requestData.minAmount!=null" style="cursor: auto;">Range & Negotiable :
               {{requestData.minAmount|currency:'INR'}} - {{requestData.minAmount|currency:'INR'}}</span>
-            <button 
+            <button (click)="accept()"
               class="flex ml-auto text-black  btn1">Accept</button>
           </div>
         </div>
