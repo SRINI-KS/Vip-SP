@@ -4,6 +4,7 @@ import { UserComponent } from './user.component';
 import { AddRequestComponent } from '../Components/add-request/add-request.component';
 import { UserHomeComponent } from '../Components/UserHome/user-home/user-home.component';
 import { MyRequestComponent } from '../Components/my-request/my-request.component';
+import { UserDetailsComponent } from '../Components/user-details/user-details.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,9 @@ const routes: Routes = [
       },
       {
         path:'myrequest',component:MyRequestComponent
+      },
+      {
+        path:'profile',component:UserDetailsComponent
       },
 
       {

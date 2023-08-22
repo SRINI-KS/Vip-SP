@@ -12,6 +12,7 @@
 
 
 
+
 input::-webkit-outer-spin-button,
 
 input::-webkit-inner-spin-button {
@@ -28,4 +29,4 @@ input::-webkit-inner-spin-button {
 }
 .btnStyle{
   @apply px-8 py-4 rounded-full border transform hover:scale-110 duration-100 my-3 md:my-0 m-2
-}
+}   

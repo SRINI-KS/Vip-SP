@@ -1,7 +1,7 @@
 import { FileHandle } from 'src/Model/file-handle.model';
 
 export interface RequestModel {
-  [x: string]: any;
+  // [x: string]: any;
   userId:string;
   requestTitle: string;
   category: string;

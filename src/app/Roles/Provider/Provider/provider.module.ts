@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ProviderRoutingModule } from './provider-routing.module';
 import { PnavBarComponent } from '../Components/pnav-bar/pnav-bar.component';
-import { UserQueryComponent } from '../Components/user-query/user-query.component';
+import { CustomerRequestComponent } from '../Components/customer-request/customer-request.component';
 import { ProviderComponent } from './provider.component';
 import { MaterialDesignModule } from 'src/app/Modules/MaterialDesign/material-design/material-design.module';
 import { SharedModule } from 'src/app/Modules/shared/shared.module';
@@ -12,7 +12,7 @@ import { SharedModule } from 'src/app/Modules/shared/shared.module';
 @NgModule({
   declarations: [
     ProviderComponent,
-    UserQueryComponent,
+    CustomerRequestComponent,
     PnavBarComponent,
   ],
   imports: [
