@@ -1,4 +1,4 @@
-<div class="max-w-full lg:max-w-fit px-10 mx-auto   space-y-10 mt-12">
+<div class="max-w-full lg:max-w-fit px-10 mx-auto   space-y-10 mt-12 min-h-screen">
   <div *ngFor="let item of allRequest" class="shadow-xl p-3">
     <div class="space-y-4 md:flex lg:grid lg:grid-cols-3 lg:items-start md:gap-6 lg:gap-6 lg:space-y-0 relative "
       style="cursor: auto;">
@@ -36,6 +36,18 @@
               <div class="flex space-x-1 text-sm text-skin-muted md:absolute lg:absolute bottom-2 right-0"
                 style="cursor: auto; ">
                 <span style="cursor: auto;">{{item.startDate}} - {{item.endDate}}</span>
+              </div>
+              <div *ngIf="item.acceptDetails.length!==0" class="md:absolute md:top-0 md:right-0">
+                <button class="button" (click)="showOrderDetails(item)">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"></path>
+                  </svg>
+                  <div class="text">
+                    Provider Accepted
+                  </div>
+                </button>
               </div>
             </div>
           </div>

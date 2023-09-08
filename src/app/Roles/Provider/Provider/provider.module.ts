@@ -7,6 +7,7 @@ import { CustomerRequestComponent } from '../Components/customer-request/custome
 import { ProviderComponent } from './provider.component';
 import { MaterialDesignModule } from 'src/app/Modules/MaterialDesign/material-design/material-design.module';
 import { SharedModule } from 'src/app/Modules/shared/shared.module';
+import { DialogComponent } from '../Components/dialog/dialog.component';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { SharedModule } from 'src/app/Modules/shared/shared.module';
     ProviderComponent,
     CustomerRequestComponent,
     PnavBarComponent,
+    DialogComponent
   ],
   imports: [
     CommonModule,

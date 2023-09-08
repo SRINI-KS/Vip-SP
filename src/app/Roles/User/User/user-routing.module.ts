@@ -5,6 +5,7 @@ import { AddRequestComponent } from '../Components/add-request/add-request.compo
 import { UserHomeComponent } from '../Components/UserHome/user-home/user-home.component';
 import { MyRequestComponent } from '../Components/my-request/my-request.component';
 import { UserDetailsComponent } from '../Components/user-details/user-details.component';
+import { OrderDetailsComponent } from '../Components/order-details/order-details.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,9 @@ const routes: Routes = [
       },
       {
         path:'profile',component:UserDetailsComponent
+      },
+      {
+        path:'orderDetails',component:OrderDetailsComponent
       },
 
       {

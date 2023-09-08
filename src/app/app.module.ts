@@ -16,6 +16,7 @@ import { JwtInterceptor } from './Interceptor/Jwt/jwt.interceptor';
 import { DialogComponent } from './Roles/Provider/Components/dialog/dialog.component';
 import { ProviderDetailsComponent } from './Roles/Provider/Components/provider-details/provider-details.component';
 import { UserDetailsComponent } from './Roles/User/Components/user-details/user-details.component';
+import { OrderDetailsComponent } from './Roles/User/Components/order-details/order-details.component';
 
 @NgModule({
   declarations: [
@@ -25,9 +26,7 @@ import { UserDetailsComponent } from './Roles/User/Components/user-details/user-
     NotFoundComponent,
     NavbarComponent,
     HomeComponent,
-    DialogComponent,
-    ProviderDetailsComponent,
-    UserDetailsComponent,
+    
   
     
   ],

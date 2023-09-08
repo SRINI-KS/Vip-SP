@@ -10,7 +10,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600&display=swap');
 
 
-
+body{
+  margin: 0;
+  padding: 0;
+}
 
 
 input::-webkit-outer-spin-button,
@@ -29,4 +32,8 @@ input::-webkit-inner-spin-button {
 }
 .btnStyle{
   @apply px-8 py-4 rounded-full border transform hover:scale-110 duration-100 my-3 md:my-0 m-2
+}   
+
+.btnStyle1{
+  @apply px-8 py-0 rounded-lg border transform hover:scale-110 duration-100 my-3  m-2 bg-green-400
 }   

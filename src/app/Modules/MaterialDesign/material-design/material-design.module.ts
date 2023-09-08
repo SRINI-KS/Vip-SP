@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 
 import { MatButtonModule } from '@angular/material/button';
-import {MatStepperModule} from '@angular/material/stepper';
+import { MatStepperModule } from '@angular/material/stepper';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatCardModule } from '@angular/material/card';
@@ -32,17 +32,19 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 import { GalleriaModule } from 'primeng/galleria';
 import { CarouselModule } from 'primeng/carousel';
-import {ButtonModule} from 'primeng/button';
+import { ButtonModule } from 'primeng/button';
+import { TimelineModule } from 'primeng/timeline';
+import {CardModule} from 'primeng/card';
 
 
 
 
-const MaterialDesign=[MatButtonModule,
+const MaterialDesign = [MatButtonModule,
   MatStepperModule,
   MatAutocompleteModule,
   MatButtonModule,
@@ -75,10 +77,13 @@ const MaterialDesign=[MatButtonModule,
   MatTooltipModule,
   MatNativeDateModule,
   MatDialogModule,
+
+
   GalleriaModule,
   CarouselModule,
-  ButtonModule
-
+  ButtonModule,
+  TimelineModule,
+  CardModule,
 
 ]
 @NgModule({
@@ -87,6 +92,6 @@ const MaterialDesign=[MatButtonModule,
     CommonModule,
     MaterialDesign
   ],
-  exports:[MaterialDesign]
+  exports: [MaterialDesign]
 })
 export class MaterialDesignModule { }

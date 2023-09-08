@@ -12,6 +12,8 @@ import { DragDirective } from '../Directives/drag.directive';
 import { MyRequestComponent } from '../Components/my-request/my-request.component';
 import { CardComponent } from 'src/app/Components/Cards/card/card.component';
 import { SharedModule } from 'src/app/Modules/shared/shared.module';
+import { UserDetailsComponent } from '../Components/user-details/user-details.component';
+import { OrderDetailsComponent } from '../Components/order-details/order-details.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { SharedModule } from 'src/app/Modules/shared/shared.module';
     UnavBarComponent,
     UserComponent,
     MyRequestComponent,
-    CardComponent
+    CardComponent,
+    UserDetailsComponent,
+    OrderDetailsComponent
   ],
   imports: [
     CommonModule,
@@ -30,7 +34,8 @@ import { SharedModule } from 'src/app/Modules/shared/shared.module';
     ReactiveFormsModule,
     FormsModule,
     DragDirective ,
-    SharedModule
+    SharedModule,
+    
   ],
   providers: [],
 })

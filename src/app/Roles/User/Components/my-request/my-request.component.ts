@@ -5,6 +5,8 @@ import { FileHandle } from 'src/Model/file-handle.model';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ImageService } from 'src/app/Services/Image/image.service';
 import {map}from 'rxjs'
+import { MatDialog } from '@angular/material/dialog';
+import { OrderDetailsComponent } from '../order-details/order-details.component';
 @Component({
   selector: 'app-my-request',
   templateUrl: './my-request.component.html',
@@ -15,7 +17,8 @@ export class MyRequestComponent implements OnInit {
 
   constructor(
     private requestService: MyRequestService,
-    private imageService:ImageService
+    private imageService:ImageService,
+    public dialog: MatDialog
    
   ) {}
 
@@ -36,5 +39,15 @@ this.allRequest=Response
   }
   getImage(){
     console.log(this.allRequest)
+  }
+
+  showOrderDetails(request: RequestModel) {
+    this.dialog.open(OrderDetailsComponent, {
+      height: '70%',
+      width: '60%',
+      data: {
+        requestData: request,
+      },
+    });
   }
 }
